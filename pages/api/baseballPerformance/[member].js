@@ -1,5 +1,5 @@
 import dbConnect from '../../../utils/dbConnect';
-import Connects from '../../../models/dbContacts';
+import BaseballPerformance from '../../../models/dbPerformance' ;
 dbConnect();
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -12,7 +12,7 @@ export default async (req, res) => {
     switch (method) {
         case 'GET':
             try {
-                const baseballinfo = await Connects.findOne({member}).exec();
+                const baseballinfo = await BaseballPerformance.findOne({member}).exec();
                 console.log(baseballinfo) ;
                 if (!baseballinfo) {
                     return res.status(400).json({ success: false });
@@ -24,7 +24,7 @@ export default async (req, res) => {
             break;
         case 'PUT':
             try {
-                const baseballinfo = await Connects.findByIdAndUpdate(member, req.body, {
+                const baseballinfo = await BaseballPerformance.findByIdAndUpdate(member, req.body, {
                     new: true,
                     runValmemberators: true
                 });
@@ -40,8 +40,8 @@ export default async (req, res) => {
             break;
         case 'DELETE':
             try {
-                const deletedConnects = await Connects.deleteOne({ member: member });
-                if (!deletedConnects) {
+                const deletedBaseballPerformance = await BaseballPerformance.deleteOne({ member: member });
+                if (!deletedBaseballPerformance) {
                     return res.status(400).json({ success: false })
                 }
                 res.status(200).json({ success: true, data: {} });

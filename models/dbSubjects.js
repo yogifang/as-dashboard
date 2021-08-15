@@ -12,4 +12,4 @@ const schemaSubjects = new mongoose.Schema({
   bFilled: Boolean,
 });
 
-module.exports = mongoose.models.achievments || mongoose.model('achievements', schemaSubjects);
+module.exports = mongoose.models.achievements || mongoose.model('achievements', schemaSubjects);

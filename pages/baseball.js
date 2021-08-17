@@ -10,8 +10,9 @@ const Baseball = ({ baseballplayers }) => {
   
   const {member , setMember} = useAppContext() ;
   const onMemberChange = (event) => {
-   // console.log(event.target.value);
+   console.log(event.target.value);
    setMember(event.target.value) ;
+   console.log(member);
     router.push(`/baseballPage?member=${member}`) ;
   };
   return (

@@ -1,5 +1,5 @@
 import dbConnect from '../../../utils/dbConnect';
-import ShootingPerformance from '../../../models/dbBaseballinfos';
+import ShootingPerformance from '../../../models/dbShooting';
 dbConnect();
 
 // eslint-disable-next-line import/no-anonymous-default-export

@@ -84,7 +84,9 @@ const BaseballPage = () => {
 
       const getBaseballInfo = async () => {
             try {
-                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/baseballInfo/${member}`, {
+                const url = process.env.HOST_URI + `api/baseballInfo/${member}` ;    
+                // const res = await fetch(`https://dashboard-chi-three.vercel.app/api/baseballInfo/${member}`, {
+                   const res = await fetch(url, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -106,7 +108,9 @@ const BaseballPage = () => {
 
         const getContacts = async () => {
             try {
-                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/contacts/${member}`, {
+                const url = process.env.HOST_URI + `api/contacts/${member}` ;    
+                //  const res = await fetch(`https://dashboard-chi-three.vercel.app/api/contacts/${member}`, {
+                    const res = await fetch(url, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -129,7 +133,9 @@ const BaseballPage = () => {
 
         const getSubjects = async () => {
             try {
-                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/subjects/${member}`, {
+                const url = process.env.HOST_URI + `api/subjects/${member}` ;    
+                  const res = await fetch(url, {
+               // const res = await fetch(`https://dashboard-chi-three.vercel.app/api/subjects/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -150,7 +156,9 @@ const BaseballPage = () => {
 
         const getPerformance = async () => {
             try {
-                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/shootingPerformance/${member}`, {
+                const url = process.env.HOST_URI + `api/shootingPerformance/${member}` ;    
+                  const res = await fetch(url, {
+             //   const res = await fetch(`https://dashboard-chi-three.vercel.app/api/shootingPerformance/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",

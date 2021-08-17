@@ -29,7 +29,9 @@ const Shooting = ({ shooters }) => {
 };
 
 Shooting.getInitialProps = async () => {
-  const res = await fetch('https://dashboard-chi-three.vercel.app/api/members');
+  const url = process.env.HOST_URI + "api/members" ;
+  const res = await fetch (url) ;
+ // const res = await fetch('https://dashboard-chi-three.vercel.app/api/members');
   const { data } = await res.json(); 
   return { shooters: data };
 };

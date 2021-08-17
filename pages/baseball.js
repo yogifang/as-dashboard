@@ -30,7 +30,7 @@ const Baseball = ({ baseballplayers }) => {
 };
 
 Baseball.getInitialProps = async () => {
-  const res = await fetch('http://localhost:3000/api/members');
+  const res = await fetch('https://dashboard-chi-three.vercel.app/api/members');
   const { data } = await res.json();
   return { baseballplayers: data };
 };

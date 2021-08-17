@@ -84,7 +84,7 @@ const BaseballPage = () => {
 
       const getBaseballInfo = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/baseballInfo/${member}`, {
+                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/baseballInfo/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -106,7 +106,7 @@ const BaseballPage = () => {
 
         const getContacts = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/contacts/${member}`, {
+                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/contacts/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -129,7 +129,7 @@ const BaseballPage = () => {
 
         const getSubjects = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/subjects/${member}`, {
+                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/subjects/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",
@@ -150,7 +150,7 @@ const BaseballPage = () => {
 
         const getPerformance = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/shootingPerformance/${member}`, {
+                const res = await fetch(`https://dashboard-chi-three.vercel.app/api/shootingPerformance/${member}`, {
                     method: 'GET',
                     headers: {
                         "Content-Type": "application/json",

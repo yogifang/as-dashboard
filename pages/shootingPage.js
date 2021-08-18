@@ -76,13 +76,7 @@ const ShootingPage = () => {
       const [valPerformance , setValPerformance] = useState(initialShootingPerformance) ; 
      
       useEffect(() => {
-            getBaseballInfo() ;
-            getContacts() ;
-            getSubjects() ;
-            getPerformance() ;
-        },[])
-
-      const getBaseballInfo = async () => {
+        const getBaseballInfo = async () => {
             try {
                 const url = process.env.HOST_URI + `api/baseballInfo/${member}` ;    
                 // const res = await fetch(`https://dashboard-chi-three.vercel.app/api/baseballInfo/${member}`, {
@@ -169,9 +163,7 @@ const ShootingPage = () => {
                 let field;
                let nValues = {};
               for (field in initialShootingPerformance) {
-                 console.log(field);
-                 console.log(record.data[field]);
-
+               
                  nValues[field] = record.data[field];
                   }
                   setValPerformance(nValues) ;    
@@ -179,6 +171,13 @@ const ShootingPage = () => {
                 console.log(error);
             }
         }
+            getBaseballInfo() ;
+            getContacts() ;
+            getSubjects() ;
+            getPerformance() ;
+        },[])
+
+     
 
       return (
       <div>

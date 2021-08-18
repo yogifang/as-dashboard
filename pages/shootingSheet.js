@@ -31,13 +31,6 @@ const ShootingSheet = ({ shooters }) => {
       let shooterLastestScore = [] ;
 
       useEffect(() => {
-         
-           getBaseballInfo() ;
-           getContacts() ;
-           getPerformance() ;
-        },[])
-
-     
         const getBaseballInfo = async () => {
             console.log("======") ;
             shooters.map(async (player) => {
@@ -95,7 +88,6 @@ const ShootingSheet = ({ shooters }) => {
                   setBirthday(shooterBirthday)
             }
     
-         
             const getPerformance = async () => {
                 shooters.map(async (player) => {
                     if (player.sportItem === 'shooting') {
@@ -116,8 +108,6 @@ const ShootingSheet = ({ shooters }) => {
                             shooterBest50M3x40.push(record.data.best50M3x40) ;
                             shooterBest50M3x20.push(record.data.best50M3x20) ;
                             shooterLastestScore.push(record.data.lastestScore) ;
-    
-                            
                         } catch (error) {
                             console.log(error);
                         }
@@ -138,6 +128,13 @@ const ShootingSheet = ({ shooters }) => {
        router.push(`/shootingPage?member=${member}`) ;
    }
 
+           getBaseballInfo() ;
+           getContacts() ;
+           getPerformance() ;
+        },[])
+
+     
+       
       return (
       <div>
        <h1>Shooting Sheet Pages</h1>

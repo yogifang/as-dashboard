@@ -11,8 +11,9 @@ import { Component } from 'react';
 const ShootingSheet = ({ shooters }) => {
      
       const {member , setMember} = useAppContext() ;
+      const [loading , setLoading ] = useState(false) ;
       const [shooter , setShooter ] = useState([]) ;
-      const [name , setName] = useState([]) ;
+      const [name , setName] = useState([5]) ;
       const [birthday , setBirthday] = useState([]) ;
       const [gender , setGender] = useState([])  ;
       const [best10M60R , setBest10M60R] = useState([]) ;
@@ -30,11 +31,23 @@ const ShootingSheet = ({ shooters }) => {
       let shooterBest50M3x40 = [] ;
       let shooterLastestScore = [] ;
 
+      const callApi = () => {
+       
+        setLoading(true);
+       
+    }
+
       useEffect(() => {
+       
+        const id = setInterval(() => {
+            callApi()
+            
+        }, 3000);
+
         const getBaseballInfo = async () => {
-            console.log("======") ;
+            
             shooters.map(async (player) => {
-                if (player.sportItem === 'shooting') {   
+             
                     try {
                           const url = process.env.HOST_URI + `api/baseballInfo/${player.email}` ;    
                            const res = await fetch(url, {
@@ -53,7 +66,7 @@ const ShootingSheet = ({ shooters }) => {
                         console.log(error);
                     }
                  
-                }
+              
                
               }) ;
              
@@ -65,7 +78,7 @@ const ShootingSheet = ({ shooters }) => {
     
             const getContacts = async () => {
                 shooters.map(async (player) => {
-                    if (player.sportItem === 'shooting') {
+                    
                      //   console.log(player.sportItem);
                         try {
                               const url = process.env.HOST_URI + `api/contacts/${player.email}` ;    
@@ -81,7 +94,7 @@ const ShootingSheet = ({ shooters }) => {
                         } catch (error) {
                             console.log(error);
                         }
-                    }
+                   
                   
                   }) ;
                //   console.log(shooterBirthday) ;
@@ -90,7 +103,6 @@ const ShootingSheet = ({ shooters }) => {
     
             const getPerformance = async () => {
                 shooters.map(async (player) => {
-                    if (player.sportItem === 'shooting') {
                         try {
                               const url = process.env.HOST_URI + `api/shootingPerformance/${player.email}` ;    
                                const res = await fetch(url, {
@@ -110,21 +122,20 @@ const ShootingSheet = ({ shooters }) => {
                             shooterLastestScore.push(record.data.lastestScore) ;
                         } catch (error) {
                             console.log(error);
-                        }
-                    }
-                  
+                        }                    
                   }) ;
-               //   console.log(shooterBest10M60R) ;
-               setBest10M60R(shooterBest10M60R) ;
-               setBest50M3x20(shooterBest50M3x20) ;
-               setBest50M3x40(shooterBest50M3x40) ;
-               setLastestScore(shooterLastestScore) ;
-             
+                  setBest10M60R(shooterBest10M60R) ;
+                  setBest50M3x20(shooterBest50M3x20) ;
+                  setBest50M3x40(shooterBest50M3x40) ;
+                  setLastestScore(shooterLastestScore) ;
+                 
+          
             }
   
            getBaseballInfo() ;
            getContacts() ;
            getPerformance() ;
+           
         },[])
 
         const handleButtonClick = (event) => {
@@ -157,7 +168,8 @@ const ShootingSheet = ({ shooters }) => {
           </tr>
         </thead>
         <tbody>
-           
+        
+        {!loading ? <tr><td>Loading..........</td></tr>  : <>
          {name.map((player , index) => {
              return (
                 <tr  key={index}>
@@ -172,6 +184,7 @@ const ShootingSheet = ({ shooters }) => {
                 <td><button type="button" className="btn btn-primary" onClick={handleButtonClick} value={index} >Detial</button> </td>
                 </tr>    
             )} ) }  
+           </>  }
         </tbody>
       </table>
     </div>

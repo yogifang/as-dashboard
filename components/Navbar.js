@@ -14,6 +14,7 @@ const Navbar = () => (
     <Link href='/shootingSheet'>
       <a className='create'>射擊統計</a>
     </Link>
+   
   </nav>
 );
 

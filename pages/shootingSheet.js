@@ -39,10 +39,13 @@ const ShootingSheet = ({ shooters }) => {
 
       useEffect(() => {
        
-        const id = setInterval(() => {
-            callApi()
-            
-        }, 3000);
+        if (loading === false) {
+            const id = setInterval(() => {
+                callApi()
+                
+            }, 3000);
+        }
+       
 
         const getBaseballInfo = async () => {
             

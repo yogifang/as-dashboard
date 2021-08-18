@@ -121,18 +121,18 @@ const ShootingSheet = ({ shooters }) => {
                setLastestScore(shooterLastestScore) ;
              
             }
-   const handleButtonClick = (event) => {
-       console.log(event.target.value) ;
-      // console.log(email) ;
-       setMember(shooter[event.target.value])   ;
-       router.push(`/shootingPage?member=${member}`) ;
-   }
-
+  
            getBaseballInfo() ;
            getContacts() ;
            getPerformance() ;
         },[])
 
+        const handleButtonClick = (event) => {
+            console.log(event.target.value) ;
+           // console.log(email) ;
+            setMember(shooter[event.target.value])   ;
+            router.push(`/shootingPage?member=${member}`) ;
+        }
      
        
       return (

@@ -18,6 +18,7 @@ const Baseball = ({ baseballplayers }) => {
   return (
     <div>
       <h1>棒球選手</h1>
+      <div className="container-fluid" style={{width: '1024px'}}>
       <Form.Select aria-label='Default select example' onChange={onMemberChange} onClick={onMemberChange}>
         {baseballplayers.map((player) => {
           if (player.sportItem !== 'baseball') return null;
@@ -25,6 +26,7 @@ const Baseball = ({ baseballplayers }) => {
           return <option key={player._id}>{player.email}</option>;
         })}
       </Form.Select>
+      </div>
     </div>
   );
 };

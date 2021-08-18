@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { Button, Card, Form } from 'react-bootstrap';
-import { useState , useContext} from 'react';
+import { useState , useContext } from 'react';
 import { useRouter } from 'next/router'
 import { AppWrapper ,useAppContext } from '../components/AppContext' ;
 
@@ -18,7 +18,7 @@ const Baseball = ({ baseballplayers }) => {
   return (
     <div>
       <h1>棒球選手</h1>
-      <Form.Select aria-label='Default select example' onChange={onMemberChange}>
+      <Form.Select aria-label='Default select example' onChange={onMemberChange} onClick={onMemberChange}>
         {baseballplayers.map((player) => {
           if (player.sportItem !== 'baseball') return null;
           console.log(player.sportItem);
@@ -33,7 +33,6 @@ Baseball.getInitialProps = async () => {
   const url = process.env.HOST_URI + "api/members" ;
   console.log(process.env.HOST_URI.toString()) ;
   console.log (url) ;
-  const abc = await fetch ()
   const res = await fetch (url) ;
  // const res = await fetch('https://dashboard-chi-three.vercel.app/api/members');
   const { data } = await res.json();

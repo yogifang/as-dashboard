@@ -4,6 +4,8 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 import { AppWrapper ,useAppContext } from '../components/AppContext' ;
+
+
 const Shooting = ({ shooters }) => {
 
   const router = useRouter() ;
@@ -17,7 +19,7 @@ const Shooting = ({ shooters }) => {
   return (
     <div>
       <h1>射擊選手</h1>
-      <Form.Select aria-label='Default select example' onChange={onMemberChange}  >
+      <Form.Select aria-label='Default select example' onChange={onMemberChange} onClick={onMemberChange} >
         {shooters.map((player) => {
           if (player.sportItem !== 'shooting') return null;
           console.log(player.sportItem);

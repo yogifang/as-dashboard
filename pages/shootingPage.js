@@ -68,7 +68,7 @@ const initialBaseinfos = {
       };
       
     
-const BaseballPage = () => {
+const ShootingPage = () => {
       const {member , setMember} = useAppContext() ;   
       const [values , setValues] = useState(initialBaseinfos) ;
       const [valContact , setValContact] = useState(initialContacts) ;
@@ -328,4 +328,4 @@ const BaseballPage = () => {
 
 
 
-export default BaseballPage ;
+export default ShootingPage ;

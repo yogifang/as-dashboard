@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const schemaShooting = new mongoose.Schema({
   member: String,
   latestGameName: String,
-  lastestScore: Number,
+  latestScore: Number,
   latestGameDate: { type: Date, default: Date.now },
   best10M60R: Number,
   best10MLevel: String,

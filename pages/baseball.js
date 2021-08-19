@@ -17,7 +17,7 @@ const Baseball = ({ baseballplayers }) => {
   };
   return (
     <div>
-      <h1>棒球選手</h1>
+      <h1>Baseball Players</h1>
       <div className="container-fluid" style={{width: '1024px'}}>
       <Form.Select aria-label='Default select example' onChange={onMemberChange} onClick={onMemberChange}>
         {baseballplayers.map((player) => {

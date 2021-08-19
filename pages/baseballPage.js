@@ -214,194 +214,195 @@ const BaseballPage = () => {
 
      <div className="row marketing">
         <div className="col-lg-2" >
-         <h4 style={{marginBottom:10}}>個資</h4>
+         <h4 style={{marginBottom:10}}>Personal information</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>中文姓名</p>
+         <p style={{marginBottom:0}}>Name</p>
          <h4 style={{marginBottom:10}}>{values.ChineseName}</h4>
-         <p style={{marginBottom:0}}>身高</p>
+         <p style={{marginBottom:0}}>Hight</p>
          <h4 style={{marginBottom:10}}>{values.Height}cm</h4>
-         <p style={{marginBottom:0}}>守備位置</p>
+         <p style={{marginBottom:0}}>Defensive position</p>
          <h4 style={{marginBottom:10}}>{values.PriPosition}</h4>
-         <p style={{marginBottom:0}}>第二守備位置</p>
+         <p style={{marginBottom:0}}>Defensive position2</p>
          <h4 style={{marginBottom:10}}>{values.SecPosition}</h4>
-         <p style={{marginBottom: 0}}>投/打慣用手</p>
+         <p style={{marginBottom: 0}}>Throwing/playing hand</p>
          <h4 style={{marginBottom:10}}>{values.LeftRightHand}</h4>     
        </div>
 
        <div className="col-lg-3">
-         <p style={{marginBottom:0}}>護照英文</p>
+         <p style={{marginBottom:0}}>Passport Name</p>
          <h4 style={{marginBottom:10}}>{values.PassportName}</h4>
-         <p style={{marginBottom: 0}}>體重</p>
+         <p style={{marginBottom: 0}}>Weight</p>
          <h4 style={{marginBottom:10}}>{values.Weight}Kg</h4> 
-         <p style={{marginBottom: 0}}>國籍</p>
+         <p style={{marginBottom: 0}}>Citizenship</p>
          <h4 style={{marginBottom:10}}>{valContact.Nationality}</h4>
-         <p style={{marginBottom: 0}}>居住城市</p>
+         <p style={{marginBottom: 0}}>Residence</p>
          <h4 style={{marginBottom:10}}>{valContact.liveCity}</h4>
-         <p style={{marginBottom: 0}}>就讀學校</p>
+         <p style={{marginBottom: 0}}>Current school</p>
          <h4 style={{marginBottom:10}}>{valContact.school}</h4>
          <p style={{marginBottom: 0}}>Email</p>
          <h4 style={{marginBottom:10}}>{valContact.email}</h4>
        </div>
        
        <div className="col-lg-3">
-         <p style={{marginBottom:0}}>性別</p>
+         <p style={{marginBottom:0}}>Gender</p>
          <h4 style={{marginBottom:10}}>{values.Gender}</h4>
-         <p style={{marginBottom: 0}}>年級</p>
+         <p style={{marginBottom: 0}}>Grade</p>
          <h4 style={{marginBottom:10}}>{values.currentGrad}</h4>
-         <p style={{marginBottom: 0}}>高中預計畢業日期</p>
+         <p style={{marginBottom: 0}}>High school expected graduation date</p>
          <h4 style={{marginBottom:10}}><Moment format="YYYY-MM">
                 {values.GradDate}
             </Moment></h4>
-         <p style={{marginBottom:0}}>出生年月日</p>
+         <p style={{marginBottom:0}}>Birthday</p>
          <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
                 {valContact.birthday}
             </Moment></h4>
-         <p style={{marginBottom:0}}>其他資料或個人社群連結</p>
+         <p style={{marginBottom:0}}>Other information</p>
          <h4 style={{marginBottom:10}}>{valContact.links}</h4>
        </div>
      </div>
 
      <div className="row marketing">
         <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>學科相關</h4>
+         <h4 style={{marginBottom:10}}>Subject related</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>在校成績GPA</p>
+         <p style={{marginBottom:0}}>School grades GPA</p>
          <h4 style={{marginBottom:10}}>{valSubjects.GPA}</h4>
-         <p style={{marginBottom:0}}>在校平均成績</p>
+         <p style={{marginBottom:0}}>Average grades</p>
          <h4 style={{marginBottom:10}}>{valSubjects.AVG}</h4>
-         <p style={{marginBottom:0}}>托福考試成績</p>
+         <p style={{marginBottom:0}}>TOFEL</p>
          <h4 style={{marginBottom:10}}>{valSubjects.TOFEL}</h4>   
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>雅思考試成績</p>
+         <p style={{marginBottom:0}}>IELTS</p>
          <h4 style={{marginBottom:10}}>{valSubjects.IELTS}</h4>
-         <p style={{marginBottom:0}}>多益考試成績</p>
+         <p style={{marginBottom:0}}>TOEIC</p>
          <h4 style={{marginBottom:10}}>{valSubjects.TOEIC}</h4>
-         <p style={{marginBottom:0}}>SAT考試成績</p>
+         <p style={{marginBottom:0}}>SAT</p>
          <h4 style={{marginBottom:10}}>{valSubjects.SAT}</h4>   
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>ACT考試成績</p>
+         <p style={{marginBottom:0}}>ACT</p>
          <h4 style={{marginBottom:10}}>{valSubjects.ACT}</h4>
-         <p style={{marginBottom:0}}>欲就讀科系</p>
+         <p style={{marginBottom:0}}>Interests in College Major</p>
          <h4 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h4>     
        </div>
      </div>
 
      <div className="row marketing">
         <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>運動表現成績</h4>
+         <h4 style={{marginBottom:10}}>Athletic performance</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>10碼衝刺（秒</p>
+         <p style={{marginBottom:0}}>10 yard sprint(s)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.TenYardSplit}</h4>
-         <h5 style={{marginBottom:10}}>投球表現與生涯數據</h5>
-         <p style={{marginBottom:0}}>球速（英里每小時）</p>
+         <p style={{marginBottom:0}}>60 Yard Sprint(s)</p>
+         <h4 style={{marginBottom:10}}>{valPerformance.SixtyYardSplit}</h4>
+         
+         <p style={{marginBottom:0}}>Most recent game tournament/competition name</p>
+         <h4 style={{marginBottom:10}}>{valPerformance.latestGameName}</h4>  
+         <p style={{marginBottom:0}}>Most recent game date</p> 
+         <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
+                {valPerformance.latestGameDate}
+            </Moment></h4>
+         <h5 style={{marginBottom:10}}>Pitching Performance</h5>
+         <p style={{marginBottom:0}}>Throwing Velocity (mph)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.Throwing}</h4>
-         <p style={{marginBottom:0}}>捕手二壘阻殺測試(秒)</p>
+         <p style={{marginBottom:0}}>Block Pitch(s)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BlockPitch}</h4>   
-         <p style={{marginBottom:0}}>防禦率</p>
+         <p style={{marginBottom:0}}>ERA</p>
          <h4 style={{marginBottom:10}}>{valPerformance.ERA}</h4>   
-         <p style={{marginBottom:0}}>自責分</p>
+         <p style={{marginBottom:0}}>ER</p>
          <h4 style={{marginBottom:10}}>{valPerformance.ER}</h4>   
-         <p style={{marginBottom:0}}>出賽場數</p>
+         <p style={{marginBottom:0}}>Games</p>
          <h4 style={{marginBottom:10}}>{valPerformance.gamesP}</h4>   
-         <p style={{marginBottom:0}}>被全壘打</p>
+         <p style={{marginBottom:0}}>BHR</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BHR}</h4>   
-         <p style={{marginBottom:0}}>投球局數</p>
+         <p style={{marginBottom:0}}>IP</p>
          <h4 style={{marginBottom:10}}>{valPerformance.IP}</h4>   
-         <p style={{marginBottom:0}}>觸身球</p>
+         <p style={{marginBottom:0}}>HB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.HB}</h4>   
-         <p style={{marginBottom:0}}>被安打</p>
+         <p style={{marginBottom:0}}>H</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BH}</h4>   
-         <p style={{marginBottom:0}}>保送</p>
+         <p style={{marginBottom:0}}>BB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BB}</h4>   
-         <p style={{marginBottom:0}}>被得分</p>
+         <p style={{marginBottom:0}}>R</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BRUN}</h4>   
-         <p style={{marginBottom:0}}>三振</p>
+         <p style={{marginBottom:0}}>K</p>
          <h4 style={{marginBottom:10}}>{valPerformance.K}</h4>   
 
 
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>60碼衝刺（秒</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.SixtyYardSplit}</h4>
-         <h5 style={{marginBottom:10}}>打擊表現與生涯數據</h5>
-         <p style={{marginBottom:0}}>揮棒速度(英里每小時)</p>
+        
+         <h5 style={{marginBottom:10}}>Hit performance </h5>
+         <p style={{marginBottom:0}}>Exit Velocity(mph)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.EXIT}</h4>   
-         <p style={{marginBottom:0}}>打席</p>
+         <p style={{marginBottom:0}}>AB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.AB}</h4>   
-         <p style={{marginBottom:0}}>打擊率</p>
+         <p style={{marginBottom:0}}>AVG</p>
          <h4 style={{marginBottom:10}}>{valPerformance.AVG}</h4>   
-         <p style={{marginBottom:0}}>二壘安打</p>
+         <p style={{marginBottom:0}}>2B</p>
          <h4 style={{marginBottom:10}}>{valPerformance.Hit2B}</h4>   
-         <p style={{marginBottom:0}}>攻擊指數</p>
+         <p style={{marginBottom:0}}>OPS</p>
          <h4 style={{marginBottom:10}}>{valPerformance.OPS}</h4>   
-         <p style={{marginBottom:0}}>三壘安打</p>
+         <p style={{marginBottom:0}}>3B</p>
          <h4 style={{marginBottom:10}}>{valPerformance.Hit3B}</h4>   
-         <p style={{marginBottom:0}}>出賽場數</p>
+         <p style={{marginBottom:0}}>Games</p>
          <h4 style={{marginBottom:10}}>{valPerformance.gamesH}</h4>   
-         <p style={{marginBottom:0}}>全壘打</p>
+         <p style={{marginBottom:0}}>HR</p>
          <h4 style={{marginBottom:10}}>{valPerformance.HR}</h4>   
-         <p style={{marginBottom:0}}>得分</p>
+         <p style={{marginBottom:0}}>R</p>
          <h4 style={{marginBottom:10}}>{valPerformance.RUN}</h4>   
-         <p style={{marginBottom:0}}>被三振</p>
+         <p style={{marginBottom:0}}>K</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BK}</h4>   
-         <p style={{marginBottom:0}}>安打</p>
+         <p style={{marginBottom:0}}>H</p>
          <h4 style={{marginBottom:10}}>{valPerformance.Hits}</h4>   
-         <p style={{marginBottom:0}}>被保送</p>
+         <p style={{marginBottom:0}}>BB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.BB}</h4>   
 
        </div>
        <div className="col-lg-3" >
-         
-         <h5 style={{marginBottom:10}}>最近一場比賽成績</h5>
-         <p style={{marginBottom:0}}>最近一次比賽名稱</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.latestGameName}</h4>  
-         <p style={{marginBottom:0}}>最近一次比賽日期</p> 
-         <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
-                {valPerformance.latestGameDate}
-            </Moment></h4>
-         <h5 style={{marginBottom:10}}>投球成績</h5>   
-         <p style={{marginBottom:0}}>防禦率</p>
+       <h5 style={{marginBottom:10}}>Most recent game statistics</h5>
+         <h5 style={{marginBottom:10}}>Pitching Performance</h5>   
+         <p style={{marginBottom:0}}>ERA</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lERA}</h4> 
-         <p style={{marginBottom:0}}>自責分</p>
+         <p style={{marginBottom:0}}>ER</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lER}</h4>     
-         <p style={{marginBottom:0}}>投球局數</p>
+         <p style={{marginBottom:0}}>IP</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lIP}</h4>     
-         <p style={{marginBottom:0}}>被全壘打</p>
+         <p style={{marginBottom:0}}>HR</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBHR}</h4>     
-         <p style={{marginBottom:0}}>被安打</p>
+         <p style={{marginBottom:0}}>H</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBH}</h4>     
-         <p style={{marginBottom:0}}>觸身球</p>
+         <p style={{marginBottom:0}}>HB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lHB}</h4>     
-         <p style={{marginBottom:0}}>被得分</p>
+         <p style={{marginBottom:0}}>R</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBRUN}</h4>     
-         <p style={{marginBottom:0}}>保送</p>
+         <p style={{marginBottom:0}}>BB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBB}</h4>     
-         <p style={{marginBottom:0}}>三振</p>
+         <p style={{marginBottom:0}}>K</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lK}</h4>  
 
-         <h5 style={{marginBottom:10}}>打擊成績</h5>
-         <p style={{marginBottom:0}}>打擊率</p>
+         <h5 style={{marginBottom:10}}>Hitting Performance</h5>
+         <p style={{marginBottom:0}}>AVG</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lAVG}</h4> 
-         <p style={{marginBottom:0}}>二壘安打</p>
+         <p style={{marginBottom:0}}>2B</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lHit2B}</h4>     
-         <p style={{marginBottom:0}}>攻擊指數</p>
+         <p style={{marginBottom:0}}>OPS</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lOPS}</h4>     
-         <p style={{marginBottom:0}}>三壘安打</p>
+         <p style={{marginBottom:0}}>3B</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lHit3B}</h4>     
-         <p style={{marginBottom:0}}>得分</p>
+         <p style={{marginBottom:0}}>R</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lRUN}</h4>     
-         <p style={{marginBottom:0}}>全壘打</p>
+         <p style={{marginBottom:0}}>HR</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lHitHR}</h4>     
-         <p style={{marginBottom:0}}>安打</p>
+         <p style={{marginBottom:0}}>H</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lHits}</h4>     
-         <p style={{marginBottom:0}}>被三振</p>
+         <p style={{marginBottom:0}}>K</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBK}</h4>     
-         <p style={{marginBottom:0}}>被保送</p>
+         <p style={{marginBottom:0}}>BB</p>
          <h4 style={{marginBottom:10}}>{valPerformance.lBBB}</h4>          
 
        </div>

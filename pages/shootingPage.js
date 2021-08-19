@@ -49,7 +49,7 @@ const initialBaseinfos = {
     const initialShootingPerformance = {
         member: '',
         latestGameName: '',
-        lastestScore: 0,
+        latestScore: 0,
         latestGameDate: Date.now(),
         best10M60R: 0,
         best10MLevel: '',
@@ -187,45 +187,45 @@ const ShootingPage = () => {
 
      <div className="row marketing">
         <div className="col-lg-2" >
-         <h4 style={{marginBottom:10}}>個資</h4>
+         <h4 style={{marginBottom:10}}>Personal information</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>中文姓名</p>
+         <p style={{marginBottom:0}}>Chinese Naem</p>
          <h4 style={{marginBottom:10}}>{values.ChineseName}</h4>
-         <p style={{marginBottom:0}}>身高</p>
+         <p style={{marginBottom:0}}>Hight</p>
          <h4 style={{marginBottom:10}}>{values.Height}cm</h4>
-         <p style={{marginBottom: 0}}>國籍</p>
+         <p style={{marginBottom: 0}}>Citizenship</p>
          <h4 style={{marginBottom:10}}>{valContact.Nationality}</h4>     
-         <p style={{marginBottom: 0}}>就讀學校</p>
+         <p style={{marginBottom: 0}}>Current School</p>
          <h4 style={{marginBottom:10}}>{valContact.school}</h4>
        </div>
 
        <div className="col-lg-3">
-         <p style={{marginBottom:0}}>護照英文</p>
+         <p style={{marginBottom:0}}>Passport Name</p>
          <h4 style={{marginBottom:10}}>{values.PassportName}</h4>
-         <p style={{marginBottom: 0}}>體重</p>
+         <p style={{marginBottom: 0}}>Weight</p>
          <h4 style={{marginBottom:10}}>{values.Weight}Kg</h4> 
-         <p style={{marginBottom:0}}>出生年月日</p>
+         <p style={{marginBottom:0}}>Birthday</p>
          <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
                 {valContact.birthday}
             </Moment></h4>
-         <p style={{marginBottom: 0}}>居住城市</p>
+         <p style={{marginBottom: 0}}>Residence</p>
          <h4 style={{marginBottom:10}}>{valContact.liveCity}</h4>
          
         
        </div>
        
        <div className="col-lg-3">
-         <p style={{marginBottom:0}}>性別</p>
+         <p style={{marginBottom:0}}>Gender</p>
          <h4 style={{marginBottom:10}}>{values.Gender}</h4>
-         <p style={{marginBottom: 0}}>年級</p>
+         <p style={{marginBottom: 0}}>Grade</p>
          <h4 style={{marginBottom:10}}>{values.currentGrad}</h4>
-         <p style={{marginBottom: 0}}>高中預計畢業日期</p>
+         <p style={{marginBottom: 0}}>High school expected graduation date</p>
          <h4 style={{marginBottom:10}}><Moment format="YYYY-MM">
                 {values.GradDate}
             </Moment></h4>
         
-         <p style={{marginBottom:0}}>其他資料或個人社群連結</p>
+         <p style={{marginBottom:0}}>Other information</p>
          <h4 style={{marginBottom:10}}>{valContact.links}</h4>
          <p style={{marginBottom: 0}}>Email</p>
          <h4 style={{marginBottom:10}}>{valContact.email}</h4>
@@ -234,82 +234,82 @@ const ShootingPage = () => {
 
      <div className="row marketing">
         <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>學科相關</h4>
+         <h4 style={{marginBottom:10}}>Subject related</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>在校成績GPA</p>
+         <p style={{marginBottom:0}}>School grades GPA</p>
          <h4 style={{marginBottom:10}}>{valSubjects.GPA}</h4>
-         <p style={{marginBottom:0}}>在校平均成績</p>
+         <p style={{marginBottom:0}}>Average grades</p>
          <h4 style={{marginBottom:10}}>{valSubjects.AVG}</h4>
-         <p style={{marginBottom:0}}>托福考試成績</p>
+         <p style={{marginBottom:0}}>TOFEL</p>
          <h4 style={{marginBottom:10}}>{valSubjects.TOFEL}</h4>   
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>雅思考試成績</p>
+         <p style={{marginBottom:0}}>IELTS</p>
          <h4 style={{marginBottom:10}}>{valSubjects.IELTS}</h4>
-         <p style={{marginBottom:0}}>多益考試成績</p>
+         <p style={{marginBottom:0}}>TOEIC</p>
          <h4 style={{marginBottom:10}}>{valSubjects.TOEIC}</h4>
-         <p style={{marginBottom:0}}>SAT考試成績</p>
+         <p style={{marginBottom:0}}>SAT</p>
          <h4 style={{marginBottom:10}}>{valSubjects.SAT}</h4>   
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>ACT考試成績</p>
+         <p style={{marginBottom:0}}>ACT</p>
          <h4 style={{marginBottom:10}}>{valSubjects.ACT}</h4>
-         <p style={{marginBottom:0}}>欲就讀科系</p>
+         <p style={{marginBottom:0}}>Interests in College Major</p>
          <h4 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h4>     
        </div>
      </div>
 
      <div className="row marketing">
         <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>射擊運動成績</h4>
+         <h4 style={{marginBottom:10}}>Shooting performance</h4>
        </div>
        <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>最近一次比賽名稱</p>
+         <p style={{marginBottom:0}}>Latest Competition Name</p>
          <h4 style={{marginBottom:10}}>{valPerformance.latestGameName}</h4>
-         <p style={{marginBottom:0}}>10米生涯最佳成績（60發）</p>
+         <p style={{marginBottom:0}}>10M Air Rifle Record(60 shots)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best10M60R}</h4>
-         <p style={{marginBottom:0}}>50米生涯最佳成績(3x40)</p>
+         <p style={{marginBottom:0}}>50M Rifle Record (3x40)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best50M3x40}</h4>
-         <p style={{marginBottom:0}}>50米生涯最佳成績(3x20)</p>
+         <p style={{marginBottom:0}}>50M Rifle Record (3x20)</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best50M3x20}</h4>
-         <p style={{marginBottom:0}}>國內排名</p>
+         <p style={{marginBottom:0}}>National Rank</p>
          <h4 style={{marginBottom:10}}>{valPerformance.rankNational}</h4>
-         <p style={{marginBottom:0}}>ISSF 官網選手連結</p>
+         <p style={{marginBottom:0}}>ISSF Profile Link</p>
          <h4 style={{marginBottom:10}}>{valPerformance.linkISSF}</h4>
 
 
 
        </div>
        <div className="col-lg-3" >
-       <p style={{marginBottom:0}}>最近一次比賽成績</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lastestScore}</h4>
-         <p style={{marginBottom:0}}>在哪一層級之賽事達到該成績</p>
+       <p style={{marginBottom:0}}>Latest Competition Name</p>
+         <h4 style={{marginBottom:10}}>{valPerformance.latestScore}</h4>
+         <p style={{marginBottom:0}}>Record Broken in What Level</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best10MLevel}</h4>
-         <p style={{marginBottom:0}}>在哪一層級之賽事達到該成績</p>
+         <p style={{marginBottom:0}}>Record Broken in What Level</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best50M3x40Level}</h4>
-         <p style={{marginBottom:0}}>在哪一層級之賽事達到該成績</p>
+         <p style={{marginBottom:0}}>Record Broken in What Level</p>
          <h4 style={{marginBottom:10}}>{valPerformance.best50M3x20Level}</h4>
-         <p style={{marginBottom:0}}>世界排名</p>
+         <p style={{marginBottom:0}}>World Rank</p>
          <h4 style={{marginBottom:10}}>{valPerformance.rankWorld}</h4>
-         <p style={{marginBottom:0}}>比賽或訓練影片</p>
+         <p style={{marginBottom:0}}>Showcasing Vidoes</p>
          <h4 style={{marginBottom:10}}>{valPerformance.linkVideo}</h4>
 
        </div>
        <div className="col-lg-3" >
-       <p style={{marginBottom:0}}>比賽日期</p>
+       <p style={{marginBottom:0}}>Date</p>
        <h4 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
                 {valPerformance.latestGameDate}
             </Moment></h4>
-            <p style={{marginBottom:0}}>比賽日期</p>
+            <p style={{marginBottom:0}}>Date</p>
        <h4 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
                 {valPerformance.best10MDate}
             </Moment></h4>
-            <p style={{marginBottom:0}}>比賽日期</p>
+            <p style={{marginBottom:0}}>Date</p>
        <h4 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
                 {valPerformance.best50M3x40Date}
             </Moment></h4>
-            <p style={{marginBottom:0}}>比賽日期</p>
+            <p style={{marginBottom:0}}>Date</p>
        <h4 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
                 {valPerformance.best50M3x20Date}
             </Moment></h4>     

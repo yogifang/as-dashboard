@@ -18,7 +18,7 @@ const Shooting = ({ shooters }) => {
   };
   return (
     <div>
-      <h1>射擊選手</h1>
+      <h1>Shooters</h1>
       <div className="container-fluid" style={{width: '1024px'}}>
       <Form.Select aria-label='Default select example' onChange={onMemberChange} onClick={onMemberChange} >
         {shooters.map((player) => {

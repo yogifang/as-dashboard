@@ -162,7 +162,7 @@ const ShootingSheet = ({ shooters }) => {
       return (
       <div>
        <h1>Shooters Sheet</h1>
-       <h4>Double Click On Selected Row will show Details</h4>
+       <h4>Click On Selected Row will show Details</h4>
        <div className="container-fluid" style={{width: '1024px'}}> 
        <div className="row">
     <div className="col-24">
@@ -184,7 +184,7 @@ const ShootingSheet = ({ shooters }) => {
         {!loading ? <tr><td>Loading..........</td></tr>  : <>
          {name.map((player , index) => {
              return (
-                <tr  key={index} onDoubleClick={handleRowClick} value={player}>
+                <tr  key={index} onClick={handleRowClick} value={player}>
                 <td>{name[index]}</td>
                 <td>{gender[index]}</td>
                 <td> <Moment format="YYYY-MM-DD">{birthday[index]}</Moment></td>   

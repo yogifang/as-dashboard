@@ -5,8 +5,9 @@ const AppContext = createContext();
 export function AppWrapper({ children }) {
  
   const [member , setMember] = useState('') ;
+  const [loaded , setLoaded] = useState(false) ;
+  let sharedState = {member , setMember , loaded , setLoaded} ;
 
-  let sharedState = {member , setMember} ;
   return (
     <AppContext.Provider value={sharedState}>
       {children}

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
 import fetch from 'isomorphic-unfetch';
-import { Button, Form,  Grid } from 'react-bootstrap';
+import { Button, Form,  Grid , Container , Row , Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { AppWrapper ,useAppContext } from '../components/AppContext' ;
 
@@ -207,211 +207,211 @@ const BaseballPage = () => {
         },[]) ;
 
       return (
-      <div>
+      <Container>
        <h1>Baseball Pages</h1>
        <div className="container-fluid" style={{width: '1024px'}}>
      
 
-     <div className="row marketing">
+     <Row className="row marketing">
         <div className="col-lg-2" >
-         <h4 style={{marginBottom:10}}>Personal information</h4>
+         <h5 style={{marginBottom:10}}>Personal information</h5>
        </div>
-       <div className="col-lg-3" >
+       <Col className="col-lg-3" >
          <p style={{marginBottom:0}}>Name</p>
-         <h4 style={{marginBottom:10}}>{values.ChineseName}</h4>
+         <h5 style={{marginBottom:10}}>{values.ChineseName}</h5>
          <p style={{marginBottom:0}}>Hight</p>
-         <h4 style={{marginBottom:10}}>{values.Height}cm</h4>
+         <h5 style={{marginBottom:10}}>{values.Height}cm</h5>
          <p style={{marginBottom:0}}>Defensive position</p>
-         <h4 style={{marginBottom:10}}>{values.PriPosition}</h4>
+         <h5 style={{marginBottom:10}}>{values.PriPosition}</h5>
          <p style={{marginBottom:0}}>Defensive position2</p>
-         <h4 style={{marginBottom:10}}>{values.SecPosition}</h4>
+         <h5 style={{marginBottom:10}}>{values.SecPosition}</h5>
          <p style={{marginBottom: 0}}>Throwing/playing hand</p>
-         <h4 style={{marginBottom:10}}>{values.LeftRightHand}</h4>     
-       </div>
+         <h5 style={{marginBottom:10}}>{values.LeftRightHand}</h5>     
+       </Col>
 
-       <div className="col-lg-3">
+       <Col className="col-lg-3">
          <p style={{marginBottom:0}}>Passport Name</p>
-         <h4 style={{marginBottom:10}}>{values.PassportName}</h4>
+         <h5 style={{marginBottom:10}}>{values.PassportName}</h5>
          <p style={{marginBottom: 0}}>Weight</p>
-         <h4 style={{marginBottom:10}}>{values.Weight}Kg</h4> 
+         <h5 style={{marginBottom:10}}>{values.Weight}Kg</h5> 
          <p style={{marginBottom: 0}}>Citizenship</p>
-         <h4 style={{marginBottom:10}}>{valContact.Nationality}</h4>
+         <h5 style={{marginBottom:10}}>{valContact.Nationality}</h5>
          <p style={{marginBottom: 0}}>Residence</p>
-         <h4 style={{marginBottom:10}}>{valContact.liveCity}</h4>
+         <h5 style={{marginBottom:10}}>{valContact.liveCity}</h5>
          <p style={{marginBottom: 0}}>Current school</p>
-         <h4 style={{marginBottom:10}}>{valContact.school}</h4>
+         <h5 style={{marginBottom:10}}>{valContact.school}</h5>
          <p style={{marginBottom: 0}}>Email</p>
-         <h4 style={{marginBottom:10}}>{valContact.email}</h4>
-       </div>
+         <h5 style={{marginBottom:10}}>{valContact.email}</h5>
+       </Col>
        
-       <div className="col-lg-3">
+       <Col className="col-lg-3">
          <p style={{marginBottom:0}}>Gender</p>
-         <h4 style={{marginBottom:10}}>{values.Gender}</h4>
+         <h5 style={{marginBottom:10}}>{values.Gender}</h5>
          <p style={{marginBottom: 0}}>Grade</p>
-         <h4 style={{marginBottom:10}}>{values.currentGrad}</h4>
+         <h5 style={{marginBottom:10}}>{values.currentGrad}</h5>
          <p style={{marginBottom: 0}}>High school expected graduation date</p>
-         <h4 style={{marginBottom:10}}><Moment format="YYYY-MM">
+         <h5 style={{marginBottom:10}}><Moment format="YYYY-MM">
                 {values.GradDate}
-            </Moment></h4>
+            </Moment></h5>
          <p style={{marginBottom:0}}>Birthday</p>
-         <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
+         <h5 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
                 {valContact.birthday}
-            </Moment></h4>
+            </Moment></h5>
          <p style={{marginBottom:0}}>Other information</p>
-         <h4 style={{marginBottom:10}}>{valContact.links}</h4>
-       </div>
-     </div>
+         <h5 style={{marginBottom:10}}>{valContact.links}</h5>
+       </Col>
+     </Row>
 
-     <div className="row marketing">
-        <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>Subject related</h4>
-       </div>
-       <div className="col-lg-3" >
+     <Row className="row marketing">
+        <Col className="col-lg-2">
+         <h5 style={{marginBottom:10}}>Subject related</h5>
+       </Col>
+       <Col className="col-lg-3" >
          <p style={{marginBottom:0}}>School grades GPA</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.GPA}</h4>
+         <h5 style={{marginBottom:10}}>{valSubjects.GPA}</h5>
          <p style={{marginBottom:0}}>Average grades</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.AVG}</h4>
+         <h5 style={{marginBottom:10}}>{valSubjects.AVG}</h5>
          <p style={{marginBottom:0}}>TOFEL</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.TOFEL}</h4>   
-       </div>
-       <div className="col-lg-3" >
+         <h5 style={{marginBottom:10}}>{valSubjects.TOFEL}</h5>   
+       </Col>
+       <Col className="col-lg-3" >
          <p style={{marginBottom:0}}>IELTS</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.IELTS}</h4>
+         <h5 style={{marginBottom:10}}>{valSubjects.IELTS}</h5>
          <p style={{marginBottom:0}}>TOEIC</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.TOEIC}</h4>
+         <h5 style={{marginBottom:10}}>{valSubjects.TOEIC}</h5>
          <p style={{marginBottom:0}}>SAT</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.SAT}</h4>   
-       </div>
-       <div className="col-lg-3" >
+         <h5 style={{marginBottom:10}}>{valSubjects.SAT}</h5>   
+       </Col>
+       <Col className="col-lg-3" >
          <p style={{marginBottom:0}}>ACT</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.ACT}</h4>
+         <h5 style={{marginBottom:10}}>{valSubjects.ACT}</h5>
          <p style={{marginBottom:0}}>Interests in College Major</p>
-         <h4 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h4>     
-       </div>
-     </div>
+         <h5 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h5>     
+       </Col>
+     </Row>
 
-     <div className="row marketing">
-        <div className="col-lg-2">
-         <h4 style={{marginBottom:10}}>Athletic performance</h4>
-       </div>
-       <div className="col-lg-3" >
+     <Row className="row marketing">
+        <Col className="col-lg-2">
+         <h5 style={{marginBottom:10}}>Athletic performance</h5>
+       </Col>
+       <Col className="col-lg-3" >
          <p style={{marginBottom:0}}>10 yard sprint(s)</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.TenYardSplit}</h4>
+         <h5 style={{marginBottom:10}}>{valPerformance.TenYardSplit}</h5>
          <p style={{marginBottom:0}}>60 Yard Sprint(s)</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.SixtyYardSplit}</h4>
+         <h5 style={{marginBottom:10}}>{valPerformance.SixtyYardSplit}</h5>
          
          <p style={{marginBottom:0}}>Most recent game tournament/competition name</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.latestGameName}</h4>  
+         <h5 style={{marginBottom:10}}>{valPerformance.latestGameName}</h5>  
          <p style={{marginBottom:0}}>Most recent game date</p> 
-         <h4 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
+         <h5 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
                 {valPerformance.latestGameDate}
-            </Moment></h4>
+            </Moment></h5>
          <h5 style={{marginBottom:10}}>Pitching Performance</h5>
          <p style={{marginBottom:0}}>Throwing Velocity (mph)</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.Throwing}</h4>
+         <h5 style={{marginBottom:10}}>{valPerformance.Throwing}</h5>
          <p style={{marginBottom:0}}>Block Pitch(s)</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BlockPitch}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BlockPitch}</h5>   
          <p style={{marginBottom:0}}>ERA</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.ERA}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.ERA}</h5>   
          <p style={{marginBottom:0}}>ER</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.ER}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.ER}</h5>   
          <p style={{marginBottom:0}}>Games</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.gamesP}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.gamesP}</h5>   
          <p style={{marginBottom:0}}>BHR</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BHR}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BHR}</h5>   
          <p style={{marginBottom:0}}>IP</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.IP}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.IP}</h5>   
          <p style={{marginBottom:0}}>HB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.HB}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.HB}</h5>   
          <p style={{marginBottom:0}}>H</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BH}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BH}</h5>   
          <p style={{marginBottom:0}}>BB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BB}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BB}</h5>   
          <p style={{marginBottom:0}}>R</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BRUN}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BRUN}</h5>   
          <p style={{marginBottom:0}}>K</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.K}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.K}</h5>   
 
 
-       </div>
-       <div className="col-lg-3" >
+       </Col>
+       <Col className="col-lg-3" >
         
          <h5 style={{marginBottom:10}}>Hit performance </h5>
          <p style={{marginBottom:0}}>Exit Velocity(mph)</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.EXIT}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.EXIT}</h5>   
          <p style={{marginBottom:0}}>AB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.AB}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.AB}</h5>   
          <p style={{marginBottom:0}}>AVG</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.AVG}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.AVG}</h5>   
          <p style={{marginBottom:0}}>2B</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.Hit2B}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.Hit2B}</h5>   
          <p style={{marginBottom:0}}>OPS</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.OPS}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.OPS}</h5>   
          <p style={{marginBottom:0}}>3B</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.Hit3B}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.Hit3B}</h5>   
          <p style={{marginBottom:0}}>Games</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.gamesH}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.gamesH}</h5>   
          <p style={{marginBottom:0}}>HR</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.HR}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.HR}</h5>   
          <p style={{marginBottom:0}}>R</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.RUN}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.RUN}</h5>   
          <p style={{marginBottom:0}}>K</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BK}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BK}</h5>   
          <p style={{marginBottom:0}}>H</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.Hits}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.Hits}</h5>   
          <p style={{marginBottom:0}}>BB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.BB}</h4>   
+         <h5 style={{marginBottom:10}}>{valPerformance.BB}</h5>   
 
-       </div>
-       <div className="col-lg-3" >
+       </Col>
+       <Col className="col-lg-3" >
        <h5 style={{marginBottom:10}}>Most recent game statistics</h5>
          <h5 style={{marginBottom:10}}>Pitching Performance</h5>   
          <p style={{marginBottom:0}}>ERA</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lERA}</h4> 
+         <h5 style={{marginBottom:10}}>{valPerformance.lERA}</h5> 
          <p style={{marginBottom:0}}>ER</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lER}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lER}</h5>     
          <p style={{marginBottom:0}}>IP</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lIP}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lIP}</h5>     
          <p style={{marginBottom:0}}>HR</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBHR}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lBHR}</h5>     
          <p style={{marginBottom:0}}>H</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBH}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lBH}</h5>     
          <p style={{marginBottom:0}}>HB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lHB}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lHB}</h5>     
          <p style={{marginBottom:0}}>R</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBRUN}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lBRUN}</h5>     
          <p style={{marginBottom:0}}>BB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBB}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lBB}</h5>     
          <p style={{marginBottom:0}}>K</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lK}</h4>  
+         <h5 style={{marginBottom:10}}>{valPerformance.lK}</h5>  
 
          <h5 style={{marginBottom:10}}>Hitting Performance</h5>
          <p style={{marginBottom:0}}>AVG</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lAVG}</h4> 
+         <h5 style={{marginBottom:10}}>{valPerformance.lAVG}</h5> 
          <p style={{marginBottom:0}}>2B</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lHit2B}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lHit2B}</h5>     
          <p style={{marginBottom:0}}>OPS</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lOPS}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lOPS}</h5>     
          <p style={{marginBottom:0}}>3B</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lHit3B}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lHit3B}</h5>     
          <p style={{marginBottom:0}}>R</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lRUN}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lRUN}</h5>     
          <p style={{marginBottom:0}}>HR</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lHitHR}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lHitHR}</h5>     
          <p style={{marginBottom:0}}>H</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lHits}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lHits}</h5>     
          <p style={{marginBottom:0}}>K</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBK}</h4>     
+         <h5 style={{marginBottom:10}}>{valPerformance.lBK}</h5>     
          <p style={{marginBottom:0}}>BB</p>
-         <h4 style={{marginBottom:10}}>{valPerformance.lBBB}</h4>          
+         <h5 style={{marginBottom:10}}>{valPerformance.lBBB}</h5>          
 
-       </div>
-     </div>
+       </Col>
+     </Row>
 
    </div> 
    
        
-       </div>     
+       </Container>     
             
       ) ;
 }

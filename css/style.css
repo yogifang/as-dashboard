@@ -1,7 +1,12 @@
 h1 {
     text-align: center;
 }
-
+h4 {
+    text-align: center;
+}
+h5 {
+    text-align: left;
+}
 .wrapper {
     max-width: 1200px;
     padding: 0 16px;

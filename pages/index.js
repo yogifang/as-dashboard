@@ -8,7 +8,8 @@ const Index = () => {
   const [value, setValue] = useState('shooting');
 
    console.log("Index..........In" );
-  return <div className='members-container'></div>;
+  return <div className='members-container'></div>
+ 
 };
 
 export default Index;

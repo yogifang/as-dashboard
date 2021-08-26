@@ -13,7 +13,7 @@ const ShootingSheet = ({ shooters }) => {
       const {member , setMember} = useAppContext() ;
       const [loading , setLoading ] = useState(false) ;
       const [shooter , setShooter ] = useState([]) ;
-      const [name , setName] = useState([5]) ;
+      const [name , setName] = useState([]) ;
       const [birthday , setBirthday] = useState([]) ;
       const [gender , setGender] = useState([])  ;
       const [best10M60R , setBest10M60R] = useState([]) ;
@@ -43,14 +43,13 @@ const ShootingSheet = ({ shooters }) => {
             const id = setInterval(() => {
                 callApi()
                 
-            }, 3000);
-        }
+            }, 4000);
+       }
        
 
         const getBaseballInfo = async () => {
             
-            shooters.map(async (player) => {
-             
+            shooters.map(async (player , index) => {
                     try {
                           const url = process.env.HOST_URI + `api/baseballInfo/${player.email}` ;    
                            const res = await fetch(url, {
@@ -59,28 +58,27 @@ const ShootingSheet = ({ shooters }) => {
                                 "Content-Type": "application/json",
                             },
                         }) 
-                        const record = await res.json();
-                        
-                        shooterName.push(record.data.ChineseName) ;
-                        shooterGender.push(record.data.Gender) ;
-                        email.push(player.email) ;
-    
+                        const record = await res.json();   
+                        shooterName[index] = record.data.ChineseName ;
+                        email[index] = player.email ;
+                        shooterGender[index] = record.data.Gender ;
+                  //      shooterName.push(record.data.ChineseName) ;
+                  //      shooterGender.push(record.data.Gender) ;
+                      //  email.push(player.email) ;
                     } catch (error) {
                         console.log(error);
                     }
-                 
-              
-               
               }) ;
              
               setName(shooterName) ;
               setGender(shooterGender);
               setShooter(email) ;
+             
             }
     
     
             const getContacts = async () => {
-                shooters.map(async (player) => {
+                shooters.map(async (player , index) => {
                     
                      //   console.log(player.sportItem);
                         try {
@@ -92,20 +90,19 @@ const ShootingSheet = ({ shooters }) => {
                                 },
                             }) 
                             const record = await res.json();
-                            shooterBirthday.push(record.data.birthday) ;
+                            shooterBirthday[index] = record.data.birthday ;
+                         //   shooterBirthday.push({data:record.data.birthday , email:player.email}) ;
                             
                         } catch (error) {
                             console.log(error);
                         }
-                   
-                  
                   }) ;
-               //   console.log(shooterBirthday) ;
+                  console.log(shooterBirthday) ;
                   setBirthday(shooterBirthday)
             }
     
             const getPerformance = async () => {
-                shooters.map(async (player) => {
+                shooters.map(async (player, index) => {
                         try {
                               const url = process.env.HOST_URI + `api/shootingPerformance/${player.email}` ;    
                                const res = await fetch(url, {
@@ -115,14 +112,14 @@ const ShootingSheet = ({ shooters }) => {
                                 },
                             }) 
                             const record = await res.json();
-                         //  console.log(record.data.best10M60R) ;
-                         //  console.log(record.data.best50M3x40) ;
-                          // console.log(record.data.best50M3x20) ;
-                         //  console.log(record.data.latestScore) ;
-                            shooterBest10M60R.push(record.data.best10M60R) ;
-                            shooterBest50M3x40.push(record.data.best50M3x40) ;
-                            shooterBest50M3x20.push(record.data.best50M3x20) ;
-                            shooterlatestScore.push(record.data.latestScore) ;
+                            shooterBest10M60R[index]=record.data.best10M60R;
+                            shooterBest50M3x40[index]=record.data.best50M3x40;
+                            shooterBest50M3x20[index]=record.data.best50M3x20;
+                            shooterlatestScore[index]=record.data.latestScore;
+                         //   shooterBest10M60R.push({data:record.data.best10M60R, email:player.email}) ;
+                         //   shooterBest50M3x40.push({data:record.data.best50M3x40, email:player.email}) ;
+                          //  shooterBest50M3x20.push({data:record.data.best50M3x20 , email:player.email}) ;
+                          //  shooterlatestScore.push({data:record.data.latestScore , email:player.email}) ;
                         } catch (error) {
                             console.log(error);
                         }                    
@@ -131,13 +128,12 @@ const ShootingSheet = ({ shooters }) => {
                   setBest50M3x20(shooterBest50M3x20) ;
                   setBest50M3x40(shooterBest50M3x40) ;
                   setlatestScore(shooterlatestScore) ;
-                 
-          
             }
   
-           getBaseballInfo() ;
-           getContacts() ;
-           getPerformance() ;
+          getBaseballInfo() ;
+          getContacts() ;
+          getPerformance() ;
+       
            
         },[])
 

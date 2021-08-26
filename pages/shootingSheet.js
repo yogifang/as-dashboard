@@ -59,7 +59,7 @@ const ShootingSheet = ({ shooters }) => {
                             },
                         }) 
                         const record = await res.json();   
-                        shooterName[index] = record.data.ChineseName ;
+                        shooterName[index] = record.data.PassportName ;
                         email[index] = player.email ;
                         shooterGender[index] = record.data.Gender ;
                   //      shooterName.push(record.data.ChineseName) ;
@@ -154,7 +154,7 @@ const ShootingSheet = ({ shooters }) => {
       <table className="table table-bordered">
         <thead>
           <tr>
-            <th scope="col" className="col-lg-1">Name</th>
+            <th scope="col" className="col-lg-2">Name</th>
             <th scope="col" className="col-lg-1">Gender</th>
             <th scope="col" className="col-lg-2">Birthday</th>
             <th scope="col" className="col-lg-2">10M Air Rifle Record(60 shots)</th>

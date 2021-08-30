@@ -61,7 +61,6 @@ const ShootingSheet = ({ shooters }) => {
                   console.log(error);
               }
         }) ;
-       
         setName(shooterName) ;
         setGender(shooterGender);
         setShooter(email) ;
@@ -89,7 +88,7 @@ const ShootingSheet = ({ shooters }) => {
                       console.log(error);
                   }
             }) ;
-            console.log(shooterBirthday) ;
+          //  console.log(shooterBirthday) ;
             setBirthday(shooterBirthday)
       }
 
@@ -125,15 +124,11 @@ const ShootingSheet = ({ shooters }) => {
 
       useEffect(() => {
        
-        if (loading === false) {
+       if (loading === false) {
             const id = setInterval(() => {
                 callApi()
-            }, 1000);
+            }, 3200);
        }
-       
-
-       
-  
           getBaseballInfo() ;
           getContacts() ;
           getPerformance() ;

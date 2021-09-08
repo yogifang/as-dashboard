@@ -144,66 +144,72 @@ const ShootingSheet = ({ shooters }) => {
   return (
     <Container className={styles.container}>
       <Navbar />
-      <h1>Shooters Sheet</h1>
-      <h4>Click On Selected Row will show Details</h4>
-      <div className="container-fluid" style={{ width: "1024px" }}>
-        <div className="row">
-          <div className="col-24">
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th scope="col" className="col-lg-3">
-                    Name
-                  </th>
-                  <th scope="col" className="col-lg-1">
-                    Gender
-                  </th>
-                  <th scope="col" className="col-lg-2">
-                    Birthday
-                  </th>
-                  <th scope="col" className="col-lg-2">
-                    10M Air Rifle Record(60 shots)
-                  </th>
-                  <th scope="col" className="col-lg-2">
-                    50M Rifle Record(3x40)
-                  </th>
-                  <th scope="col" className="col-lg-2">
-                    50M Rifle Record(3x20)
-                  </th>
-                  <th scope="col" className="col-lg-2">
-                    Latest Competition Results(10m)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {!loading ? (
+      <div className={styles.contant}>
+        <h1>Shooters Sheet</h1>
+        <h4>Click On Selected Row will show Details</h4>
+        <div className="container-fluid" style={{ width: "1024px" }}>
+          <div className="row">
+            <div className="col-24">
+              <Table striped bordered hover>
+                <thead>
                   <tr>
-                    <td>Loading..........</td>
+                    <th scope="col" className="col-lg-3">
+                      Name
+                    </th>
+                    <th scope="col" className="col-lg-1">
+                      Gender
+                    </th>
+                    <th scope="col" className="col-lg-2">
+                      Birthday
+                    </th>
+                    <th scope="col" className="col-lg-2">
+                      10M Air Rifle Record(60 shots)
+                    </th>
+                    <th scope="col" className="col-lg-2">
+                      50M Rifle Record(3x40)
+                    </th>
+                    <th scope="col" className="col-lg-2">
+                      50M Rifle Record(3x20)
+                    </th>
+                    <th scope="col" className="col-lg-2">
+                      Latest Competition Results(10m)
+                    </th>
                   </tr>
-                ) : (
-                  <>
-                    {name.map((player, index) => {
-                      return (
-                        <tr key={index} onClick={handleRowClick} value={player}>
-                          <td>{name[index]}</td>
-                          <td>{gender[index]}</td>
-                          <td>
-                            {" "}
-                            <Moment format="YYYY-MM-DD">
-                              {birthday[index]}
-                            </Moment>
-                          </td>
-                          <td>{best10M60R[index]}</td>
-                          <td>{best50M3x40[index]}</td>
-                          <td>{best50M3x20[index]}</td>
-                          <td>{latestScore[index]}</td>
-                        </tr>
-                      );
-                    })}
-                  </>
-                )}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {!loading ? (
+                    <tr>
+                      <td>Loading..........</td>
+                    </tr>
+                  ) : (
+                    <>
+                      {name.map((player, index) => {
+                        return (
+                          <tr
+                            key={index}
+                            onClick={handleRowClick}
+                            value={player}
+                          >
+                            <td>{name[index]}</td>
+                            <td>{gender[index]}</td>
+                            <td>
+                              {" "}
+                              <Moment format="YYYY-MM-DD">
+                                {birthday[index]}
+                              </Moment>
+                            </td>
+                            <td>{best10M60R[index]}</td>
+                            <td>{best50M3x40[index]}</td>
+                            <td>{best50M3x20[index]}</td>
+                            <td>{latestScore[index]}</td>
+                          </tr>
+                        );
+                      })}
+                    </>
+                  )}
+                </tbody>
+              </Table>
+            </div>
           </div>
         </div>
       </div>

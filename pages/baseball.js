@@ -19,19 +19,21 @@ const Baseball = ({ baseballplayers }) => {
   return (
     <Container className={styles.container}>
       <Navbar />
-      <h1>Baseball Players</h1>
-      <div className="container-fluid" style={{ width: "1024px" }}>
-        <Form.Select
-          aria-label="Default select example"
-          onChange={onMemberChange}
-          onClick={onMemberChange}
-        >
-          {baseballplayers.map((player) => {
-            if (player.sportItem !== "baseball") return null;
-            console.log(player.sportItem);
-            return <option key={player._id}>{player.email}</option>;
-          })}
-        </Form.Select>
+      <div className={styles.contant}>
+        <h1>Baseball Players</h1>
+        <div className="container-fluid" style={{ width: "1024px" }}>
+          <Form.Select
+            aria-label="Default select example"
+            onChange={onMemberChange}
+            onClick={onMemberChange}
+          >
+            {baseballplayers.map((player) => {
+              if (player.sportItem !== "baseball") return null;
+              console.log(player.sportItem);
+              return <option key={player._id}>{player.email}</option>;
+            })}
+          </Form.Select>
+        </div>
       </div>
     </Container>
   );

@@ -44,7 +44,8 @@ export default function Home() {
   return (
     <Container className={styles.container}>
       <Navbar />
-      
+      <div className={styles.contant}>
+        </div>
     </Container>
   );
 }

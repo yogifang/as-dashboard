@@ -210,6 +210,7 @@ const BaseballPage = () => {
       return (
       <Container className={styles.container}>
          <Navbar />
+         <div className={styles.contant}>
        <h1>Baseball Pages</h1>
        <div className="container-fluid" style={{width: '1024px'}}>
      
@@ -412,7 +413,7 @@ const BaseballPage = () => {
 
    </div> 
    
-       
+       </div>
        </Container>     
             
       ) ;

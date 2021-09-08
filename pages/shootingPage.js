@@ -183,6 +183,7 @@ const ShootingPage = () => {
       return (
       <Container className={styles.container}>
         <Navbar />
+        <div className={styles.contant}>
        <h1>Shooting Pages</h1>
        <div className="container-fluid" style={{width: '1024px'}}>
      
@@ -316,7 +317,7 @@ const ShootingPage = () => {
 
    </div> 
    
-       
+       </div>
        </Container>     
             
       ) ;

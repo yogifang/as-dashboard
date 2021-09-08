@@ -1,16 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from '../components/Layout';
-import '../css/style.css';
-import { AppWrapper } from '../components/AppContext'; // import based on where you put it
+// add bootstrap css
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/globals.css";
+import Context from "../components/stores";
+import { useState, useEffect, useReducer, useContext } from "react";
 
 function MyApp({ Component, pageProps }) {
+  const [member, setMember] = useState("");
+  const [sportItem, setSportItem] = useState("baseball");
+
   return (
-    <AppWrapper>
-      <Layout>
-      <Component {...pageProps} />
-      </Layout>
-    </AppWrapper>
-    
+    <>
+      <Context.Provider value={{ member, setMember, sportItem, setSportItem }}>
+        <Component {...pageProps} />
+      </Context.Provider>
+    </>
   );
 }
 

@@ -1,15 +1,50 @@
+import styles from '../styles/Contant.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
-import fetch from 'isomorphic-unfetch';
-import { Button, Card, Form } from 'react-bootstrap';
-import { useState, useEffect, useReducer, createContext } from "react";
+import { Button, Grid, Form, Nav, Row, Col, Container, Spinner, ButtonGroup } from 'react-bootstrap';
+import { useState, useEffect, useReducer, useContext } from 'react';
+import { Context } from '../components/stores';
+import Navbar from '../components/Navbar';
 
+export default function Home() {
+  const [login, setLogin] = useState(false);
+  const [typeLogin, setTypeLogin] = useState('');
+  const { member, setMember } = useContext(Context);
+  const handleCreate = () => {
+    setLogin(true);
+    setTypeLogin('create');
+  };
 
-const Index = () => {
-  const [value, setValue] = useState('shooting');
+  const handleLogin = () => {
+    setLogin(true);
+    setTypeLogin('login');
+  };
 
-   console.log("Index..........In" );
-  return <div className='members-container'></div>
- 
-};
+  const handleGoogleLogin = () => {
+    setLogin(true);
+    setTypeLogin('google');
+  };
 
-export default Index;
+  const switchRender = () => {
+    console.log(typeLogin);
+    switch (typeLogin) {
+      case 'login':
+        console.log('switch....login....');
+        
+        break;
+      case 'create':
+       
+        break;
+      case 'google':
+        break;
+      default:
+        break;
+    }
+  };
+  return (
+    <Container className={styles.container}>
+      <Navbar />
+      
+    </Container>
+  );
+}

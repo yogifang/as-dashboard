@@ -3,8 +3,9 @@ import { useState, useEffect, useContext } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form,  Grid , Container , Row , Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { AppWrapper ,useAppContext } from '../components/AppContext' ;
-
+import { Context } from "../components/stores";
+import Navbar from "../components/Navbar";
+import styles from "../styles/Contant.module.css";
 import Moment from 'react-moment';
 
 const initialBaseinfos = {
@@ -98,7 +99,7 @@ const initialBaseinfos = {
     };
     
 const BaseballPage = () => {
-      const {member , setMember} = useAppContext() ;   
+      const {member , setMember} = useContext(Context) ;   
       const [values , setValues] = useState(initialBaseinfos) ;
       const [valContact , setValContact] = useState(initialContacts) ;
       const [valSubjects , setValSubjects] = useState(initialSubjects) ;
@@ -207,7 +208,8 @@ const BaseballPage = () => {
         },[]) ;
 
       return (
-      <Container>
+      <Container className={styles.container}>
+         <Navbar />
        <h1>Baseball Pages</h1>
        <div className="container-fluid" style={{width: '1024px'}}>
      

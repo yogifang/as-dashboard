@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import styles from "../styles/Nav.module.css";
+import { Context } from "./stores";
 
 const Navbar = () => (
   <nav className='navbar'>

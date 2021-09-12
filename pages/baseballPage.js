@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
 import fetch from 'isomorphic-unfetch';
-import { Button, Form,  Grid , Container , Row , Col } from 'react-bootstrap';
+import {  Container , Row , Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { Context } from "../components/stores";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Contant.module.css";
 import Moment from 'react-moment';
+import OutputText from "../components/OutputText"; 
+import OutputDate from "../components/OutputDate"
+import OutputMonth from "../components/OutputMonth"
+
 
 const initialBaseinfos = {
       ChineseName: '',
@@ -210,204 +214,140 @@ const BaseballPage = () => {
       return (
       <Container className={styles.container}>
          <Navbar />
+         <h1 className={styles.m0}>Baseball Pages</h1>
          <div className={styles.contant}>
-       <h1>Baseball Pages</h1>
-       <div className="container-fluid" style={{width: '1024px'}}>
      
-
-     <Row className="row marketing">
-        <div className="col-lg-2" >
-         <h5 style={{marginBottom:10}}>Personal information</h5>
-       </div>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>Name</p>
-         <h5 style={{marginBottom:10}}>{values.ChineseName}</h5>
-         <p style={{marginBottom:0}}>Hight</p>
-         <h5 style={{marginBottom:10}}>{values.Height}cm</h5>
-         <p style={{marginBottom:0}}>Defensive position</p>
-         <h5 style={{marginBottom:10}}>{values.PriPosition}</h5>
-         <p style={{marginBottom:0}}>Defensive position2</p>
-         <h5 style={{marginBottom:10}}>{values.SecPosition}</h5>
-         <p style={{marginBottom: 0}}>Throwing/playing hand</p>
-         <h5 style={{marginBottom:10}}>{values.LeftRightHand}</h5>     
+       <div className={styles.sheettable}  style={{width: '1024px'}}>   
+       <Row className={styles.sheettable} >
+        <Col sm='2'>
+         <h5 >Personal information</h5>
+       </Col>
+     
+       <Col sm="3" >
+       <OutputText cols="12" name="ChineseName" main="Chinese Name" value={values.ChineseName} />
+       <OutputText cols="12" name="Hight" main="Hight" value = {values.Height} unit='cm' />   
+       <OutputText cols="12" name="Citizenship" main="Citizenship" value = {valContact.Nationality}  />   
+       <OutputText cols="12" name="CurrentSchool" main="Current School" value = {valContact.school}  />   
+       <OutputText cols="12" name="Defensiveposition" main="Defensive position" value = {values.PriPosition}  />   
+       <OutputText cols="12" name="email" main="Email" value={valContact.email} />
        </Col>
 
-       <Col className="col-lg-3">
-         <p style={{marginBottom:0}}>Passport Name</p>
-         <h5 style={{marginBottom:10}}>{values.PassportName}</h5>
-         <p style={{marginBottom: 0}}>Weight</p>
-         <h5 style={{marginBottom:10}}>{values.Weight}Kg</h5> 
-         <p style={{marginBottom: 0}}>Citizenship</p>
-         <h5 style={{marginBottom:10}}>{valContact.Nationality}</h5>
-         <p style={{marginBottom: 0}}>Residence</p>
-         <h5 style={{marginBottom:10}}>{valContact.liveCity}</h5>
-         <p style={{marginBottom: 0}}>Current school</p>
-         <h5 style={{marginBottom:10}}>{valContact.school}</h5>
-         <p style={{marginBottom: 0}}>Email</p>
-         <h5 style={{marginBottom:10}}>{valContact.email}</h5>
+       <Col sm="3" >
+       <OutputText cols="12" name="PassportName" main="Passport Name" value={values.PassportName} />
+       <OutputText cols="12" name="Weight" main="Weight" value = {values.Weight} unit='kg' />   
+       <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
+       <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
+       <OutputText cols="12" name="Defensiveposition2" main="Defensive position2" value = {values.SecPosition}  />  
        </Col>
        
-       <Col className="col-lg-3">
-         <p style={{marginBottom:0}}>Gender</p>
-         <h5 style={{marginBottom:10}}>{values.Gender}</h5>
-         <p style={{marginBottom: 0}}>Grade</p>
-         <h5 style={{marginBottom:10}}>{values.currentGrad}</h5>
-         <p style={{marginBottom: 0}}>High school expected graduation date</p>
-         <h5 style={{marginBottom:10}}><Moment format="YYYY-MM">
-                {values.GradDate}
-            </Moment></h5>
-         <p style={{marginBottom:0}}>Birthday</p>
-         <h5 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
-                {valContact.birthday}
-            </Moment></h5>
-         <p style={{marginBottom:0}}>Other information</p>
-         <h5 style={{marginBottom:10}}>{valContact.links}</h5>
+       <Col sm="3" >
+       <OutputText cols="12" name="Gender" main="Gender" value={values.Gender} />
+       <OutputText cols="12" name="Grade" main="Grade" value={values.currentGrad} />
+       <OutputMonth cols="12" name="expectedgraduationdate" main="High school expected graduation date" value={valContact.birthday} /> 
+       <OutputText cols="12" name="otherinformation" main="Other information" value={valContact.links} />
+       <OutputText cols="12" name="Throwingplayinghand" main="Throwing/playing hand" value = {values.LeftRightHand}  />  
+       
        </Col>
+
      </Row>
 
-     <Row className="row marketing">
-        <Col className="col-lg-2">
+     <Row className={styles.sheettable}>
+        <Col sm='2'>
          <h5 style={{marginBottom:10}}>Subject related</h5>
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>School grades GPA</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.GPA}</h5>
-         <p style={{marginBottom:0}}>Average grades</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.AVG}</h5>
-         <p style={{marginBottom:0}}>TOFEL</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.TOFEL}</h5>   
+       <Col sm='3'>
+       <OutputText cols="12" name="schoolgradesGPA" main="School grades GPA" value={valSubjects.GPA} />
+       <OutputText cols="12" name="averagegrades" main="Average grades" value={valSubjects.AVG} />
+       <OutputText cols="12" name="TOFEL" main="TOFEL" value={valSubjects.TOFEL} />
+       
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>IELTS</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.IELTS}</h5>
-         <p style={{marginBottom:0}}>TOEIC</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.TOEIC}</h5>
-         <p style={{marginBottom:0}}>SAT</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.SAT}</h5>   
+       <Col sm='3'>
+       <OutputText cols="12" name="IELTS" main="IELTS" value={valSubjects.IELTS} />
+       <OutputText cols="12" name="TOEIC" main="TOEIC" value={valSubjects.TOEIC} />
+       <OutputText cols="12" name="SAT" main="SAT" value={valSubjects.SAT} />
+         
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>ACT</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.ACT}</h5>
-         <p style={{marginBottom:0}}>Interests in College Major</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h5>     
-       </Col>
+       <Col sm='3'>
+       <OutputText cols="12" name="ACT" main="ACT" value={valSubjects.ACT} />
+       <OutputText cols="12" name="InterestsMajor" main="Interests in College Major" value={valSubjects.IntentMajor} />
+      </Col>
      </Row>
+   
 
-     <Row className="row marketing">
-        <Col className="col-lg-2">
+     <Row className={styles.sheettable}>
+        <Col sm='2'>
          <h5 style={{marginBottom:10}}>Athletic performance</h5>
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>10 yard sprint(s)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.TenYardSplit}</h5>
-         <p style={{marginBottom:0}}>60 Yard Sprint(s)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.SixtyYardSplit}</h5>
-         
-         <p style={{marginBottom:0}}>Most recent game tournament/competition name</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.latestGameName}</h5>  
-         <p style={{marginBottom:0}}>Most recent game date</p> 
-         <h5 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
-                {valPerformance.latestGameDate}
-            </Moment></h5>
-         <h5 style={{marginBottom:10}}>Pitching Performance</h5>
-         <p style={{marginBottom:0}}>Throwing Velocity (mph)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.Throwing}</h5>
-         <p style={{marginBottom:0}}>Block Pitch(s)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BlockPitch}</h5>   
-         <p style={{marginBottom:0}}>ERA</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.ERA}</h5>   
-         <p style={{marginBottom:0}}>ER</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.ER}</h5>   
-         <p style={{marginBottom:0}}>Games</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.gamesP}</h5>   
-         <p style={{marginBottom:0}}>BHR</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BHR}</h5>   
-         <p style={{marginBottom:0}}>IP</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.IP}</h5>   
-         <p style={{marginBottom:0}}>HB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.HB}</h5>   
-         <p style={{marginBottom:0}}>H</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BH}</h5>   
-         <p style={{marginBottom:0}}>BB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BB}</h5>   
-         <p style={{marginBottom:0}}>R</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BRUN}</h5>   
-         <p style={{marginBottom:0}}>K</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.K}</h5>   
-
+       <Col sm='3'>
+       <OutputText cols="12" name="TenYardSplit" main="10 yard sprint(s)" value={valPerformance.TenYardSplit} />
+       <OutputText cols="12" name="SixtyYardSplit" main="60 yard sprint(s)" value={valPerformance.SixtyYardSplit} />
+       
+       <OutputText cols="12" name="TenYardSplit" main="10 yard sprint(s)" value={valPerformance.TenYardSplit} />
+       <OutputText cols="12" name="TenYardSplit" main="10 yard sprint(s)" value={valPerformance.TenYardSplit} />
+       <h6 style={{marginBottom:10}}>Pitching Performance</h6>
+       <OutputText cols="12" name="Throwing" main="Throwing Velocity(mph)" value={valPerformance.Throwing} />
+       <OutputText cols="12" name="BlockPitch" main="Block Pitch(s)" value={valPerformance.BlockPitch} />
+       <OutputText cols="12" name="ERA" main="ERA" value={valPerformance.ERA} />
+       <OutputText cols="12" name="ER" main="ER" value={valPerformance.ER} />
+       <OutputText cols="12" name="gamesP" main="Games" value={valPerformance.gamesP} />
+       <OutputText cols="12" name="BHR" main="BHR" value={valPerformance.BHR} />
+       <OutputText cols="12" name="IP" main="IP" value={valPerformance.IP} />
+       <OutputText cols="12" name="HB" main="HB" value={valPerformance.HB} />
+       <OutputText cols="12" name="BH" main="H" value={valPerformance.BH} />
+       <OutputText cols="12" name="BB" main="BB" value={valPerformance.BB} />
+       <OutputText cols="12" name="BRUN" main="R" value={valPerformance.BRUN} />
+       <OutputText cols="12" name="K" main="K" value={valPerformance.K} />
 
        </Col>
-       <Col className="col-lg-3" >
+       <Col sm='3'>
         
-         <h5 style={{marginBottom:10}}>Hit performance </h5>
-         <p style={{marginBottom:0}}>Exit Velocity(mph)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.EXIT}</h5>   
-         <p style={{marginBottom:0}}>AB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.AB}</h5>   
-         <p style={{marginBottom:0}}>AVG</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.AVG}</h5>   
-         <p style={{marginBottom:0}}>2B</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.Hit2B}</h5>   
-         <p style={{marginBottom:0}}>OPS</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.OPS}</h5>   
-         <p style={{marginBottom:0}}>3B</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.Hit3B}</h5>   
-         <p style={{marginBottom:0}}>Games</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.gamesH}</h5>   
-         <p style={{marginBottom:0}}>HR</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.HR}</h5>   
-         <p style={{marginBottom:0}}>R</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.RUN}</h5>   
-         <p style={{marginBottom:0}}>K</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BK}</h5>   
-         <p style={{marginBottom:0}}>H</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.Hits}</h5>   
-         <p style={{marginBottom:0}}>BB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.BB}</h5>   
+         <h6 style={{marginBottom:10}}>Hit performance </h6>
+
+         <OutputText cols="12" name="EXIT" main="Exit Velocity(mph)" value={valPerformance.EXIT} />
+         <OutputText cols="12" name="AB" main="AB" value={valPerformance.AB} />
+         <OutputText cols="12" name="AVG" main="AVG" value={valPerformance.AVG} />
+         <OutputText cols="12" name="Hit2B" main="2B" value={valPerformance.Hit2B} />
+         <OutputText cols="12" name="OPS" main="OPS" value={valPerformance.OPS} />
+         <OutputText cols="12" name="Hit3B" main="3B" value={valPerformance.Hit3B} />
+         <OutputText cols="12" name="gamesH" main="Games" value={valPerformance.gamesH} />
+         <OutputText cols="12" name="HR" main="HR" value={valPerformance.HR} />
+         <OutputText cols="12" name="RUN" main="R" value={valPerformance.RUN} />
+         <OutputText cols="12" name="BK" main="K" value={valPerformance.BK} />
+         <OutputText cols="12" name="Hits" main="H" value={valPerformance.Hits} />
+         <OutputText cols="12" name="BB" main="BB" value={valPerformance.BB} />
+
+
 
        </Col>
-       <Col className="col-lg-3" >
-       <h5 style={{marginBottom:10}}>Most recent game statistics</h5>
-         <h5 style={{marginBottom:10}}>Pitching Performance</h5>   
-         <p style={{marginBottom:0}}>ERA</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lERA}</h5> 
-         <p style={{marginBottom:0}}>ER</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lER}</h5>     
-         <p style={{marginBottom:0}}>IP</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lIP}</h5>     
-         <p style={{marginBottom:0}}>HR</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBHR}</h5>     
-         <p style={{marginBottom:0}}>H</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBH}</h5>     
-         <p style={{marginBottom:0}}>HB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lHB}</h5>     
-         <p style={{marginBottom:0}}>R</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBRUN}</h5>     
-         <p style={{marginBottom:0}}>BB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBB}</h5>     
-         <p style={{marginBottom:0}}>K</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lK}</h5>  
+       <Col sm='3'>
+       <h6 style={{marginBottom:10}}>Most recent game statistics</h6>
+       <OutputText cols="12" name="latestGameName" main="Most recent tournament/competition game name" value={valPerformance.latestGameName} />
+       <OutputDate cols="12" name="latestGameDate" main="Most recent game date" value={valContact.latestGameDate} />
+         <h6 style={{marginBottom:10}}>Pitching Performance</h6>   
 
-         <h5 style={{marginBottom:10}}>Hitting Performance</h5>
-         <p style={{marginBottom:0}}>AVG</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lAVG}</h5> 
-         <p style={{marginBottom:0}}>2B</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lHit2B}</h5>     
-         <p style={{marginBottom:0}}>OPS</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lOPS}</h5>     
-         <p style={{marginBottom:0}}>3B</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lHit3B}</h5>     
-         <p style={{marginBottom:0}}>R</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lRUN}</h5>     
-         <p style={{marginBottom:0}}>HR</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lHitHR}</h5>     
-         <p style={{marginBottom:0}}>H</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lHits}</h5>     
-         <p style={{marginBottom:0}}>K</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBK}</h5>     
-         <p style={{marginBottom:0}}>BB</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.lBBB}</h5>          
+         <OutputText cols="12" name="lERA" main="ERA" value={valPerformance.lERA} />
+         <OutputText cols="12" name="lER" main="ER" value={valPerformance.lER} />
+         <OutputText cols="12" name="lIP" main="IP" value={valPerformance.lIP} />
+         <OutputText cols="12" name="lBHR" main="HR" value={valPerformance.lBHR} />
+         <OutputText cols="12" name="lBH" main="H" value={valPerformance.lBH} />
+         <OutputText cols="12" name="lHB" main="HB" value={valPerformance.lHB} />
+         <OutputText cols="12" name="lBRUN" main="R" value={valPerformance.lBRUN} />
+         <OutputText cols="12" name="lBB" main="BB" value={valPerformance.lBB} />
+         <OutputText cols="12" name="lK" main="K" value={valPerformance.lK} />
 
+         <h6 style={{marginBottom:10}}>Hitting Performance</h6>
+
+         <OutputText cols="12" name="lAVG" main="AVG" value={valPerformance.lAVG} />
+         <OutputText cols="12" name="lHit2B" main="2B" value={valPerformance.lHit2B} />
+         <OutputText cols="12" name="lOPS" main="OPS" value={valPerformance.lOPS} />
+         <OutputText cols="12" name="lHit3B" main="3B" value={valPerformance.lHit3B} />
+         <OutputText cols="12" name="lRUN" main="R" value={valPerformance.lRUN} />
+         <OutputText cols="12" name="lHitHR" main="HR" value={valPerformance.lHitHR} />
+         <OutputText cols="12" name="lHits" main="H" value={valPerformance.lHits} />
+         <OutputText cols="12" name="lBK" main="K" value={valPerformance.lBK} />
+         <OutputText cols="12" name="lBBB" main="BB" value={valPerformance.lBBB} />
+
+      
        </Col>
      </Row>
 

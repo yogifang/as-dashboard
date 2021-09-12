@@ -9,6 +9,7 @@ import styles from "../styles/Contant.module.css";
 const Shooting = ({ shooters }) => {
   const router = useRouter();
   const { member, setMember } = useContext(Context);
+
   const onMemberChange = (event) => {
     console.log(event.target.value);
     setMember(event.target.value);
@@ -19,20 +20,20 @@ const Shooting = ({ shooters }) => {
     <Container className={styles.container}>
       <Navbar />
       <div className={styles.contant}>
-        <h1>Shooters</h1>
-        <div className="container-fluid" style={{ width: "1024px" }}>
-          <Form.Select
-            aria-label="Default select example"
-            onChange={onMemberChange}
-            onClick={onMemberChange}
-          >
-            {shooters.map((player) => {
-              if (player.sportItem !== "shooting") return null;
-              console.log(player.sportItem);
-              return <option key={player._id}>{player.email}</option>;
-            })}
-          </Form.Select>
-        </div>
+        <h1 className={styles.m0}>Shooters</h1>
+
+        <Form.Select
+          aria-label="Default select example"
+          onChange={onMemberChange}
+          onDoubleClick={onMemberChange}
+          className={styles.centerSelect}
+        >
+          {shooters.map((player) => {
+            if (player.sportItem !== "shooting") return null;
+            //  console.log(player.sportItem);
+            return <option key={player._id}>{player.email}</option>;
+          })}
+        </Form.Select>
       </div>
     </Container>
   );

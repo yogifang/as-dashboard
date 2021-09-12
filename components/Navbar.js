@@ -1,23 +1,58 @@
-import Link from 'next/link';
+import { Navbar, Button, ButtonGroup, Container, Nav } from "react-bootstrap";
 import styles from "../styles/Nav.module.css";
 import { Context } from "./stores";
+import { useState, useEffect, useReducer, useContext } from "react";
+import { useRouter } from "next/router";
 
-const Navbar = () => (
-  <nav className='navbar'>
-    <Link href='/'>
-      <a className='navbar-brand'>Asia-Scouting Dashboard</a>
-    </Link>
-    <Link href='/baseball'>
-      <a className='create'>Baseball</a>
-    </Link>
-    <Link href='/shooting'>
-      <a className='create'>Shooting</a>
-    </Link>
-    <Link href='/shootingSheet'>
-      <a className='create'>Shooting List</a>
-    </Link>
-   
-  </nav>
-);
+const AppNavbar = () => {
+  const { member, setMember, sportItem, setSportItem } = useContext(Context);
+  const router = useRouter();
+  //console.log(member);
+  //console.log('Nav-----------');
+  //console.log(sportItem);
 
-export default Navbar;
+  const handleButtonClick = (event, path) => {
+    // console.log(event);
+    // console.log(path);
+    event.preventDefault();
+    router.push(path);
+  };
+
+  return (
+    <>
+      <ButtonGroup className={styles.navbar}>
+        <Button
+          size="sm"
+          id="login"
+          variant="light"
+          onClick={(e) => handleButtonClick(e, "/shooting")}
+        >
+          <span>
+            Shooter<br></br>Shooters Information
+          </span>
+        </Button>
+        <Button
+          size="sm"
+          variant="light"
+          onClick={(e) => handleButtonClick(e, "/baseball")}
+        >
+          <span>
+            Baseball <br></br>Baseball players Infomation
+          </span>
+        </Button>
+
+        <Button
+          size="sm"
+          variant="light"
+          onClick={(e) => handleButtonClick(e, "/shootingSheet")}
+        >
+          <span>
+            Sheet <br></br>Shooters list
+          </span>
+        </Button>
+      </ButtonGroup>
+    </>
+  );
+};
+
+export default AppNavbar;

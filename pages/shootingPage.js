@@ -4,9 +4,12 @@ import fetch from 'isomorphic-unfetch';
 import { Button, Form,  Grid , Row , Col, Container } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { Context } from "../components/stores";
-import Moment from 'react-moment';
+
 import Navbar from "../components/Navbar";
 import styles from "../styles/Contant.module.css";
+import OutputText from "../components/OutputText"; 
+import OutputDate from "../components/OutputDate"
+import OutputMonth from "../components/OutputMonth"
 
 const initialBaseinfos = {
       ChineseName: '',
@@ -183,135 +186,93 @@ const ShootingPage = () => {
       return (
       <Container className={styles.container}>
         <Navbar />
+        <h1 className={styles.m0}>Shooting Pages</h1>
         <div className={styles.contant}>
-       <h1>Shooting Pages</h1>
-       <div className="container-fluid" style={{width: '1024px'}}>
+      
+       <div className={styles.sheettable} style={{width: '1024px'}}>
      
-
-     <Row className="row marketing">
-        <div className="col-lg-2" >
-         <h5 style={{marginBottom:10}}>Personal information</h5>
-       </div>
-       <div className="col-lg-3" >
-         <p style={{marginBottom:0}}>Chinese Naem</p>
-         <h5 style={{marginBottom:10}}>{values.ChineseName}</h5>
-         <p style={{marginBottom:0}}>Hight</p>
-         <h5 style={{marginBottom:10}}>{values.Height}cm</h5>
-         <p style={{marginBottom: 0}}>Citizenship</p>
-         <h5 style={{marginBottom:10}}>{valContact.Nationality}</h5>     
-         <p style={{marginBottom: 0}}>Current School</p>
-         <h5 style={{marginBottom:10}}>{valContact.school}</h5>
-       </div>
-
-       <div className="col-lg-3">
-         <p style={{marginBottom:0}}>Passport Name</p>
-         <h5 style={{marginBottom:10}}>{values.PassportName}</h5>
-         <p style={{marginBottom: 0}}>Weight</p>
-         <h5 style={{marginBottom:10}}>{values.Weight}Kg</h5> 
-         <p style={{marginBottom:0}}>Birthday</p>
-         <h5 style={{marginBottom:10}}><Moment format="YYYY/MM/DD">
-                {valContact.birthday}
-            </Moment></h5>
-         <p style={{marginBottom: 0}}>Residence</p>
-         <h5 style={{marginBottom:10}}>{valContact.liveCity}</h5>
-         
-        
-       </div>
        
-       <div className="col-lg-3">
-         <p style={{marginBottom:0}}>Gender</p>
-         <h5 style={{marginBottom:10}}>{values.Gender}</h5>
-         <p style={{marginBottom: 0}}>Grade</p>
-         <h5 style={{marginBottom:10}}>{values.currentGrad}</h5>
-         <p style={{marginBottom: 0}}>High school expected graduation date</p>
-         <h5 style={{marginBottom:10}}><Moment format="YYYY-MM">
-                {values.GradDate}
-            </Moment></h5>
-        
-         <p style={{marginBottom:0}}>Other information</p>
-         <h5 style={{marginBottom:10}}>{valContact.links}</h5>
-         <p style={{marginBottom: 0}}>Email</p>
-         <h5 style={{marginBottom:10}}>{valContact.email}</h5>
-       </div>
+     <Row className={styles.sheettable}>
+        <Col sm='2' >
+         <h5 style={{marginBottom:10}}>Personal information</h5>
+       </Col>
+       <Col sm="3" >
+       <OutputText cols="12" name="ChineseName" main="Chinese Name" value={values.ChineseName} />
+       <OutputText cols="12" name="Hight" main="Hight" value = {values.Height} unit='cm' />   
+       <OutputText cols="12" name="Citizenship" main="Citizenship" value = {valContact.Nationality}  />   
+       <OutputText cols="12" name="CurrentSchool" main="Current School" value = {valContact.school}  />   
+       </Col>
+
+       <Col sm="3" >
+       <OutputText cols="12" name="PassportName" main="Passport Name" value={values.PassportName} />
+       <OutputText cols="12" name="Weight" main="Weight" value = {values.Weight} unit='kg' />   
+       <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
+       <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
+       </Col>
+       
+       <Col sm="3" >
+       <OutputText cols="12" name="Gender" main="Gender" value={values.Gender} />
+       <OutputText cols="12" name="Grade" main="Grade" value={values.currentGrad} />
+       <OutputMonth cols="12" name="expectedgraduationdate" main="High school expected graduation date" value={valContact.birthday} /> 
+       <OutputText cols="12" name="otherinformation" main="Other information" value={valContact.links} />
+       <OutputText cols="12" name="email" main="Email" value={valContact.email} />
+       </Col>
      </Row>
 
      <Row className="row marketing">
-        <Col className="col-lg-2">
+        <Col sm='2'>
          <h5 style={{marginBottom:10}}>Subject related</h5>
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>School grades GPA</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.GPA}</h5>
-         <p style={{marginBottom:0}}>Average grades</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.AVG}</h5>
-         <p style={{marginBottom:0}}>TOFEL</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.TOFEL}</h5>   
+       <Col sm='3'>
+       <OutputText cols="12" name="schoolgradesGPA" main="School grades GPA" value={valSubjects.GPA} />
+       <OutputText cols="12" name="averagegrades" main="Average grades" value={valSubjects.AVG} />
+       <OutputText cols="12" name="TOFEL" main="TOFEL" value={valSubjects.TOFEL} />
+       
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>IELTS</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.IELTS}</h5>
-         <p style={{marginBottom:0}}>TOEIC</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.TOEIC}</h5>
-         <p style={{marginBottom:0}}>SAT</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.SAT}</h5>   
+       <Col sm='3'>
+       <OutputText cols="12" name="IELTS" main="IELTS" value={valSubjects.IELTS} />
+       <OutputText cols="12" name="TOEIC" main="TOEIC" value={valSubjects.TOEIC} />
+       <OutputText cols="12" name="SAT" main="SAT" value={valSubjects.SAT} />
+         
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>ACT</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.ACT}</h5>
-         <p style={{marginBottom:0}}>Interests in College Major</p>
-         <h5 style={{marginBottom:10}}>{valSubjects.IntentMajor}</h5>     
-       </Col>
+       <Col sm='3'>
+       <OutputText cols="12" name="ACT" main="ACT" value={valSubjects.ACT} />
+       <OutputText cols="12" name="InterestsMajor" main="Interests in College Major" value={valSubjects.IntentMajor} />
+      </Col>
      </Row>
 
      <Row className="row marketing">
-        <Col className="col-lg-2">
+        <Col sm='2'>
          <h5 style={{marginBottom:10}}>Shooting performance</h5>
        </Col>
-       <Col className="col-lg-3" >
-         <p style={{marginBottom:0}}>Latest Competition Name</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.latestGameName}</h5>
-         <p style={{marginBottom:0}}>10M Air Rifle Record(60 shots)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best10M60R}</h5>
-         <p style={{marginBottom:0}}>50M Rifle Record (3x40)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best50M3x40}</h5>
-         <p style={{marginBottom:0}}>50M Rifle Record (3x20)</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best50M3x20}</h5>
-         <p style={{marginBottom:0}}>National Rank</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.rankNational}</h5>
-         <p style={{marginBottom:0}}>ISSF Profile Link</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.linkISSF}</h5>
+       <Col sm='3'>
+      
+       <OutputText cols="12" name="10M60r" main="10M Air Rifle Record(60 shots)" value={valPerformance.best10M60R} /> 
+       <OutputText cols="12" name="50M3x40" main="50M Rifle Record (3x40)" value={valPerformance.best50M3x40} /> 
+       <OutputText cols="12" name="50M3x20" main="50M Rifle Record (3x20)" value={valPerformance.best50M3x20} />
+       <OutputText cols="12" name="LatestName" main="Latest Competition Name" value={valPerformance.latestGameName} />  
+       <OutputText cols="12" name="NationalRank" main="National Rank" value={valPerformance.rankNational} />
+       <OutputText cols="12" name="ISSFProfileLink" main="ISSF Profile Link" value={valPerformance.linkISSF} />
+
+
        </Col>
-       <Col className="col-lg-3" >
-       <p style={{marginBottom:0}}>Latest Competition Name</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.latestScore}</h5>
-         <p style={{marginBottom:0}}>Record Broken in What Level</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best10MLevel}</h5>
-         <p style={{marginBottom:0}}>Record Broken in What Level</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best50M3x40Level}</h5>
-         <p style={{marginBottom:0}}>Record Broken in What Level</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.best50M3x20Level}</h5>
-         <p style={{marginBottom:0}}>World Rank</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.rankWorld}</h5>
-         <p style={{marginBottom:0}}>Showcasing Vidoes</p>
-         <h5 style={{marginBottom:10}}>{valPerformance.linkVideo}</h5>
+       <Col sm='3'>
+
+       
+       <OutputText cols="12" name="10M60r" main="Record Broken in What Level" value={valPerformance.best10MLevel} /> 
+       <OutputText cols="12" name="50M3x40" main="Record Broken in What Level" value={valPerformance.best50M3x40Level} /> 
+       <OutputText cols="12" name="50M3x20" main="Record Broken in What Level" value={valPerformance.best50M3x20Level} /> 
+       <OutputText cols="12" name="latestScore" main="Latest Competition Score" value={valPerformance.latestScore} /> 
+       <OutputText cols="12" name="NationalRank" main="World Rank" value={valPerformance.rankWorld} />
+       <OutputText cols="12" name="ISSFProfileLink" main="Showcasing Vidoes" value={valPerformance.linkVideo} />
+
        </Col>
-       <Col className="col-lg-3" >
-       <p style={{marginBottom:0}}>Date</p>
-       <h5 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
-                {valPerformance.latestGameDate}
-            </Moment></h5>
-            <p style={{marginBottom:0}}>Date</p>
-       <h5 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
-                {valPerformance.best10MDate}
-            </Moment></h5>
-            <p style={{marginBottom:0}}>Date</p>
-       <h5 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
-                {valPerformance.best50M3x40Date}
-            </Moment></h5>
-            <p style={{marginBottom:0}}>Date</p>
-       <h5 style={{marginBottom:10}}><Moment format="YYYY-MM-DD">
-                {valPerformance.best50M3x20Date}
-            </Moment></h5>        
+       <Col sm='3'>
+       <OutputDate cols="12" name="Date10M" main="Date" value={valPerformance.best10MDate} />
+       <OutputDate cols="12" name="Date50M3x40" main="Date" value={valPerformance.best50M3x40Date} />
+       <OutputDate cols="12" name="Date50M3x20" main="Date" value={valPerformance.best50M3x20Date} />
+       <OutputDate cols="12" name="Datelatest" main="Date" value={valPerformance.latestGameDate} />
+
        </Col>
      </Row>
 

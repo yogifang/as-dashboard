@@ -15,7 +15,7 @@
   width: 100%;
   margin-top: 0px;
   margin-left: 0px;
-  padding-top: 80px;
+  padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -241,4 +241,28 @@
   font-size: 16px;
   margin-bottom: 0;
   width: 60%;
+}
+.centerSelect {
+  display: block;
+  margin-left: 250px;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 0;
+  width: 50%;
+}
+
+.sheettable {
+  font-size: 10px;
+}
+.sheetcell {
+  height: 50px;
+}
+.pagemain {
+  font-size: 10px;
+  text-align: left;
+}
+.pagevalue {
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
 }

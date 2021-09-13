@@ -1,7 +1,7 @@
 import { Form, Col } from "react-bootstrap";
 import styles from "../styles/Contant.module.css";
 import { useState } from "react";
-const OutputText = (props) => {
+const OutputContent = (props) => {
   // console.log("output text.....");
   let value1 =
     (props.value1 === undefined) | (props.value1 === "") ? "N/A" : props.value1;
@@ -26,4 +26,4 @@ const OutputText = (props) => {
   );
 };
 
-export default OutputText;
+export default OutputContent;

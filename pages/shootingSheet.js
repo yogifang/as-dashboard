@@ -69,12 +69,11 @@ const ShootingSheet = ({
     onClick: (e, row, rowIndex) => {
       //   console.log(`clicked on row with index: ${rowIndex}`);
       setMember(members[rowIndex].email);
-      //  console.log(`/shootingPage?member=${member}`);
-      router.push(`/shootingPage?member=${member}`);
+      const email = members[rowIndex].email;
+      router.push(`/shootingPage?member=${email}`);
     },
   };
-
-  const handleButtonClick = (event) => {};
+  const handleButtonClick = (event) => { };
   function dateFormatter() {
     console.log("-------date formatter");
   }

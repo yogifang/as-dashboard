@@ -1,15 +1,15 @@
 module.exports = {
   reactStrictMode: true,
-  env : {
-    MONGO_URI: "mongodb+srv://yogi:askYogi0325@cluster0.qgucu.mongodb.net/asia-scouting?retryWrites=true&w=majority" ,
+  env: {
+    MONGO_URI: "mongodb+srv://yogi:askYogi0325@cluster0.qgucu.mongodb.net/asia-scouting?retryWrites=true&w=majority",
     //HOST_URI: "http://localhost:3000/" 
-    HOST_URI: "https://dashboard-chi-three.vercel.app/" 
-  } ,
+    HOST_URI: "https://dashboard-chi-three.vercel.app/"
+  },
   async headers() {
     return [
       {
         // matching all API routes
-        source: "/api/:path*" , 
+        source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },

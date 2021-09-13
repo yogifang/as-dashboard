@@ -8,28 +8,28 @@ export default async (req, res) => {
         query: { member },
         method
     } = req;
-    
+
     switch (method) {
         case 'GET':
             try {
-                const baseballinfo = await Subjects.findOne({member}).exec();
-                console.log(baseballinfo) ;
-                if (!baseballinfo) {
+                const subject = await Subjects.findOne({ member }).exec();
+
+                if (!subject) {
                     return res.status(400).json({ success: false });
                 }
-                res.status(200).json({ success: true, data: baseballinfo });
+                res.status(200).json({ success: true, data: subject });
             } catch (error) {
                 res.status(400).json({ success: false });
             }
             break;
         case 'PUT':
             try {
-                const baseballinfo = await Subjects.findByIdAndUpdate(member, req.body, {
+                const subject = await Subjects.findByIdAndUpdate(member, req.body, {
                     new: true,
                     runValmemberators: true
                 });
 
-                if (!baseballinfo) {
+                if (!subject) {
                     return res.status(400).json({ success: false });
                 }
 
@@ -53,4 +53,4 @@ export default async (req, res) => {
             res.status(400).json({ success: false })
             break;
     }
-  };
+};

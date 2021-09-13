@@ -30,10 +30,10 @@ export default function Home() {
     switch (typeLogin) {
       case 'login':
         console.log('switch....login....');
-        
+
         break;
       case 'create':
-       
+
         break;
       case 'google':
         break;
@@ -45,7 +45,7 @@ export default function Home() {
     <Container className={styles.container}>
       <Navbar />
       <div className={styles.contant}>
-        </div>
+      </div>
     </Container>
   );
 }

@@ -1,5 +1,5 @@
 import dbConnect from "../../../utils/dbConnect";
-import BaseballInfo from "../../../models/dbBaseballinfos";
+import Photos from "../../../models/dbPhotos";
 dbConnect();
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -12,42 +12,36 @@ export default async (req, res) => {
   switch (method) {
     case "GET":
       try {
-        const baseballinfo = await BaseballInfo.findOne({ member }).exec();
-
-        if (!baseballinfo) {
+        const photo = await Photos.findOne({ member }).exec();
+        //     console.log(baseballinfo) ;
+        if (!photo) {
           return res.status(400).json({ success: false });
         }
-        res.status(200).json({ success: true, data: baseballinfo });
+        res.status(200).json({ success: true, data: photo });
       } catch (error) {
         res.status(400).json({ success: false });
       }
       break;
     case "PUT":
       try {
-        const baseballinfo = await BaseballInfo.findByIdAndUpdate(
-          member,
-          req.body,
-          {
-            new: true,
-            runValmemberators: true,
-          }
-        );
+        const photo = await Photos.findByIdAndUpdate(req.body._id, req.body, {
+          new: true,
+          runValmemberators: true,
+        });
 
-        if (!baseballinfo) {
+        if (!photo) {
           return res.status(400).json({ success: false });
         }
 
-        res.status(200).json({ success: true, data: baseballinfo });
+        res.status(200).json({ success: true, data: photo });
       } catch (error) {
         res.status(400).json({ success: false });
       }
       break;
     case "DELETE":
       try {
-        const deletedBaseballInfo = await BaseballInfo.deleteOne({
-          member: member,
-        });
-        if (!deletedBaseballInfo) {
+        const deletedConnects = await Connects.deleteOne({ _id: req.body._id });
+        if (!deletedConnects) {
           return res.status(400).json({ success: false });
         }
         res.status(200).json({ success: true, data: {} });

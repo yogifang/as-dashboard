@@ -2,8 +2,7 @@ import { Form, Col } from "react-bootstrap";
 import styles from "../styles/Contant.module.css";
 import Moment from "react-moment";
 
-const OutputText = (props) => {
-  console.log("output text.....");
+const OutputDate = (props) => {
   return (
     <>
       <Col lg={props.cols} className={styles.sheetcell}>
@@ -18,4 +17,4 @@ const OutputText = (props) => {
   );
 };
 
-export default OutputText;
+export default OutputDate;

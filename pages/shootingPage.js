@@ -200,8 +200,14 @@ const ShootingPage = () => {
          <h5 className={styles.sidetitle}></h5>
        </Col>
        <Col sm="3" >
-       <img src="/human.png" class="card-img-top" alt="..." />
-       
+      
+       <Image
+      src="/human.png"
+    
+      alt="Picture of the author"
+      width={500}
+      height={500}
+    />
        </Col>
 
        <Col sm="3" >

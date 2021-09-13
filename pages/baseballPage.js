@@ -214,7 +214,7 @@ const BaseballPage = () => {
       return (
       <Container className={styles.container}>
          <Navbar />
-         <h1 className={styles.m0}>Baseball Pages</h1>
+         <h2 className={styles.m0}>Baseball Pages</h2>
          <div className={styles.contant}>
      
        <div className={styles.sheettable}  style={{width: '1024px'}}>   

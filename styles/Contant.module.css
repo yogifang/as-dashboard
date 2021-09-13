@@ -266,3 +266,16 @@
   text-align: left;
   font-weight: bold;
 }
+.pagevaluebig {
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+}
+.sidetitle {
+  writing-mode: vertical-lr;
+  color: #ffffff;
+  padding-left: 80px;
+}
+.sidecolumn {
+  background-color: #c0c0c0;
+}

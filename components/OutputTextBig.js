@@ -8,10 +8,10 @@ const OutputText = (props) => {
 
   return (
     <>
-      <Col sm={props.cols} className={styles.sheetcell}>
+      <Col lg={props.cols} className={styles.sheetcell}>
         <Form.Label htmlFor={props.name} className={styles.pagemain}>
           {props.main}
-          <p className={styles.pagevalue}>
+          <p className={styles.pagevaluebig}>
             {value}
             {props.unit}{" "}
           </p>

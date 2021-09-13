@@ -20,7 +20,7 @@ const Shooting = ({ shooters }) => {
     <Container className={styles.container}>
       <Navbar />
       <div className={styles.contant}>
-        <h1 className={styles.m0}>Shooters</h1>
+        <h2 className={styles.m0}>Shooters</h2>
 
         <Form.Select
           aria-label="Default select example"

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useContext } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form,  Grid , Row , Col, Container } from 'react-bootstrap';
@@ -10,6 +11,8 @@ import styles from "../styles/Contant.module.css";
 import OutputText from "../components/OutputText"; 
 import OutputDate from "../components/OutputDate"
 import OutputMonth from "../components/OutputMonth"
+import OutputTextBig from "../components/OutputTextBig"
+import OutputContent from "../components/OutputContent"
 
 const initialBaseinfos = {
       ChineseName: '',
@@ -186,42 +189,59 @@ const ShootingPage = () => {
       return (
       <Container className={styles.container}>
         <Navbar />
-        <h1 className={styles.m0}>Shooting Pages</h1>
+        <h2 className={styles.m0}>Shooting Pages</h2>
         <div className={styles.contant}>
       
        <div className={styles.sheettable} style={{width: '1024px'}}>
      
        
-     <Row className={styles.sheettable}>
-        <Col sm='2' >
-         <h5 style={{marginBottom:10}}>Personal information</h5>
+       <Row className={styles.sheettable}>
+        <Col className={styles.sidecolumn} sm='2' >
+         <h5 className={styles.sidetitle}></h5>
        </Col>
        <Col sm="3" >
-       <OutputText cols="12" name="ChineseName" main="Chinese Name" value={values.ChineseName} />
-       <OutputText cols="12" name="Hight" main="Hight" value = {values.Height} unit='cm' />   
-       <OutputText cols="12" name="Citizenship" main="Citizenship" value = {valContact.Nationality}  />   
-       <OutputText cols="12" name="CurrentSchool" main="Current School" value = {valContact.school}  />   
+       <img src="/human.png" class="card-img-top" alt="..." />
+       
        </Col>
 
        <Col sm="3" >
-       <OutputText cols="12" name="PassportName" main="Passport Name" value={values.PassportName} />
-       <OutputText cols="12" name="Weight" main="Weight" value = {values.Weight} unit='kg' />   
-       <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
-       <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
+       <OutputTextBig cols="12" name="ChineseName" main="" value={values.ChineseName} />
+       <OutputTextBig cols="12" name="PassportName" main="" value={values.PassportName} />
+       <OutputText cols="12" name="Gender" main="" value={values.Gender} />
+       <OutputContent cols="6" name="Hight" main="" value1 = {values.Height}  value2={values.Weight} unit1='cm' unit2='kg'/>   
        </Col>
        
        <Col sm="3" >
-       <OutputText cols="12" name="Gender" main="Gender" value={values.Gender} />
+      
+       </Col>
+     </Row>
+       
+     <Row className={styles.sheettable}>
+        <Col className={styles.sidecolumn} sm='2' >
+         <h5 className={styles.sidetitle}>information<br/>Personal</h5>
+       </Col>
+       <Col sm="3" >
+       <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
        <OutputText cols="12" name="Grade" main="Grade" value={values.currentGrad} />
+       <OutputText cols="12" name="Citizenship" main="Citizenship" value = {valContact.Nationality}  />   
+       <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
+
+       </Col>
+
+       <Col sm="3" >
+       <OutputText cols="12" name="CurrentSchool" main="Current School" value = {valContact.school}  />  
        <OutputMonth cols="12" name="expectedgraduationdate" main="High school expected graduation date" value={valContact.birthday} /> 
        <OutputText cols="12" name="otherinformation" main="Other information" value={valContact.links} />
-       <OutputText cols="12" name="email" main="Email" value={valContact.email} />
+       </Col>
+       
+       <Col sm="3" >
+       
        </Col>
      </Row>
 
-     <Row className="row marketing">
-        <Col sm='2'>
-         <h5 style={{marginBottom:10}}>Subject related</h5>
+     <Row className={styles.sheettable}>
+        <Col className={styles.sidecolumn} sm='2'>
+         <h5 className={styles.sidetitle}>related<br/>Subject</h5>
        </Col>
        <Col sm='3'>
        <OutputText cols="12" name="schoolgradesGPA" main="School grades GPA" value={valSubjects.GPA} />
@@ -241,9 +261,9 @@ const ShootingPage = () => {
       </Col>
      </Row>
 
-     <Row className="row marketing">
-        <Col sm='2'>
-         <h5 style={{marginBottom:10}}>Shooting performance</h5>
+     <Row className={styles.sheettable}>
+        <Col className={styles.sidecolumn} sm='2'>
+         <h5 className={styles.sidetitle}>performance<br/>Shooting</h5>
        </Col>
        <Col sm='3'>
       
@@ -253,6 +273,7 @@ const ShootingPage = () => {
        <OutputText cols="12" name="LatestName" main="Latest Competition Name" value={valPerformance.latestGameName} />  
        <OutputText cols="12" name="NationalRank" main="National Rank" value={valPerformance.rankNational} />
        <OutputText cols="12" name="ISSFProfileLink" main="ISSF Profile Link" value={valPerformance.linkISSF} />
+       <OutputText cols="12" name="ISSFProfileLink" main="Showcasing Vidoes" value={valPerformance.linkVideo} />
 
 
        </Col>
@@ -264,8 +285,7 @@ const ShootingPage = () => {
        <OutputText cols="12" name="50M3x20" main="Record Broken in What Level" value={valPerformance.best50M3x20Level} /> 
        <OutputText cols="12" name="latestScore" main="Latest Competition Score" value={valPerformance.latestScore} /> 
        <OutputText cols="12" name="NationalRank" main="World Rank" value={valPerformance.rankWorld} />
-       <OutputText cols="12" name="ISSFProfileLink" main="Showcasing Vidoes" value={valPerformance.linkVideo} />
-
+       
        </Col>
        <Col sm='3'>
        <OutputDate cols="12" name="Date10M" main="Date" value={valPerformance.best10MDate} />

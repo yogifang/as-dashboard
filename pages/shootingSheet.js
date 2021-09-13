@@ -82,7 +82,7 @@ const ShootingSheet = ({
   return (
     <Container className={styles.container}>
       <Navbar />
-      <h1 className={styles.m0}>Shooters Sheet</h1>
+      <h2 className={styles.m0}>Shooters Sheet</h2>
       <div className={styles.contant}>
         <h4 className={styles.m0}>Click On Selected Row will show Details</h4>
         <div className={styles.sheettable}>

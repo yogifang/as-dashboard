@@ -84,7 +84,8 @@ const ShootingPage = () => {
   const [valSubjects, setValSubjects] = useState(initialSubjects);
   const [valPerformance, setValPerformance] = useState(initialShootingPerformance);
   const [picture, setPicture] = useState({ _id: '', member: '', image: Nobody })
-  const [newPicture, setNewPicture] = useState({ image: Nobody })
+  const [photo, setPhoto] = useState({ image: Nobody });
+  // const [newPicture, setNewPicture] = useState({ image: Nobody })
 
   useEffect(() => {
     const getBaseballInfo = async () => {
@@ -185,7 +186,6 @@ const ShootingPage = () => {
 
 
     const getPhoto = async () => {
-
       const url = process.env.HOST_URI + `api/photos/${member}`;
       const queryParams = {
         method: "GET",
@@ -195,8 +195,12 @@ const ShootingPage = () => {
       const [record] = await Promise.all([res.json()]);
       if (record.success) {
         setPicture(record.data);
+        if (record.data.image !== undefined) {
+          //console.log(record.data.image);
+          setPhoto({ image: record.data.image });
+        }
       } else {
-        console.log('-------no data');
+        //   console.log('-------no data');
       }
     }
 
@@ -217,7 +221,7 @@ const ShootingPage = () => {
     const newpicture = {
       _id: picture._id,
       member: member,
-      image: newPicture.image,
+      image: photo.image,
     }
 
     setPicture(newpicture);
@@ -268,7 +272,7 @@ const ShootingPage = () => {
             <Col sm="3" >
               <Image
                 placeholder="empty"
-                src={picture.image}
+                src={photo.image}
                 alt="Picture of the author"
                 width={210}
                 height={250}
@@ -285,7 +289,7 @@ const ShootingPage = () => {
 
             <Col sm="3" >
 
-              <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setNewPicture({ image: base64 })} />
+              <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setPhoto({ image: base64 })} />
               <button className="btn" onClick={onSubmitHandler}>submit</button>
             </Col>
           </Row>

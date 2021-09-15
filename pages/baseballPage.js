@@ -207,19 +207,23 @@ const BaseballPage = () => {
     };
 
     const getPhoto = async () => {
-      const url = process.env.HOST_URI + `api/photos/${member}`;
-      const queryParams = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      };
-      const [res] = await Promise.all([fetch(url, queryParams)]);
-      const [record] = await Promise.all([res.json()]);
-      if (record.success) {
-        setPicture(record.data);
-      } else {
-        console.log('-------no data');
+        const url = process.env.HOST_URI + `api/photos/${member}`;
+        const queryParams = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+        const [res] = await Promise.all([fetch(url, queryParams),]);
+        const [record] = await Promise.all([res.json()]);
+        if (record.success) {
+          setPicture(record.data);
+          if (record.data.image !== undefined) {
+            //console.log(record.data.image);
+            setPhoto({ image: record.data.image });
+          }
+        } else {
+          //   console.log('-------no data');
+        }
       }
-    };
 
     getBaseballInfo();
     getContacts();
@@ -234,7 +238,7 @@ const BaseballPage = () => {
     const newpicture = {
       _id: picture._id,
       member: member,
-      image: newPicture.image,
+      image: photo.image,
     }
 
     setPicture(newpicture);

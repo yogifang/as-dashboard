@@ -1,15 +1,9 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-<<<<<<< HEAD
     MONGO_URI: 'mongodb+srv://yogi:askYogi0325@cluster0.qgucu.mongodb.net/asia-scouting?retryWrites=true&w=majority',
-    HOST_URI: 'http://localhost:3000/',
-    //HOST_URI: "https://dashboard-chi-three.vercel.app/"
-=======
-    MONGO_URI: "mongodb+srv://yogi:askYogi0325@cluster0.qgucu.mongodb.net/asia-scouting?retryWrites=true&w=majority",
-    //HOST_URI: "http://localhost:3000/"
+   // HOST_URI: 'http://localhost:3000/',
     HOST_URI: "https://dashboard-chi-three.vercel.app/"
->>>>>>> 2b7c4d81810fa3ce9ba01e30de5780c776c09e39
   },
   async headers() {
     return [

@@ -1,6 +1,8 @@
 {
-    "liveServer.settings.port": 0,
-    "remote.portsAttributes": {
-    
-    }
+  "liveServer.settings.port": 0,
+  "remote.portsAttributes": {},
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

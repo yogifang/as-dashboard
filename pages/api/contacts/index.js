@@ -1,17 +1,17 @@
 import dbConnect from '../../../utils/dbConnect';
 import Connects from '../../../models/dbContacts';
 
-dbConnect();  
+dbConnect();
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
   const { method } = req;
 
-  
+
   switch (method) {
     case 'GET':
       try {
-        console.log('here ------aaaa---------');
+        //  console.log('here ------aaaa---------');
         const contacts = await Connects.find({});
         res.status(200).json({ success: true, data: contacts });
       } catch (error) {

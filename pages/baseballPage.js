@@ -111,7 +111,7 @@ const BaseballPage = () => {
   const [valContact, setValContact] = useState(initialContacts);
   const [valSubjects, setValSubjects] = useState(initialSubjects);
   const [valPerformance, setValPerformance] = useState(initialBaseballPerformance);
-  const [picture, setPicture] = useState({ _id: '', member: '', image: Nobody })
+  const [picture, setPicture] = useState({ _id: '', member: '', image: Nobody });
   const [photo, setPhoto] = useState({ image: Nobody });
   useEffect(() => {
     const getBaseballInfo = async () => {
@@ -207,23 +207,23 @@ const BaseballPage = () => {
     };
 
     const getPhoto = async () => {
-        const url = process.env.HOST_URI + `api/photos/${member}`;
-        const queryParams = {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        };
-        const [res] = await Promise.all([fetch(url, queryParams),]);
-        const [record] = await Promise.all([res.json()]);
-        if (record.success) {
-          setPicture(record.data);
-          if (record.data.image !== undefined) {
-            //console.log(record.data.image);
-            setPhoto({ image: record.data.image });
-          }
-        } else {
-          //   console.log('-------no data');
+      const url = process.env.HOST_URI + `api/photos/${member}`;
+      const queryParams = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+      const [res] = await Promise.all([fetch(url, queryParams)]);
+      const [record] = await Promise.all([res.json()]);
+      if (record.success) {
+        setPicture(record.data);
+        if (record.data.image !== undefined) {
+          //console.log(record.data.image);
+          setPhoto({ image: record.data.image });
         }
+      } else {
+        //   console.log('-------no data');
       }
+    };
 
     getBaseballInfo();
     getContacts();
@@ -239,7 +239,7 @@ const BaseballPage = () => {
       _id: picture._id,
       member: member,
       image: photo.image,
-    }
+    };
 
     setPicture(newpicture);
 
@@ -249,11 +249,11 @@ const BaseballPage = () => {
         const res = await fetch(url, {
           method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(newpicture),
-        })
-        alert("Data is Saved!!");
+        });
+        alert('Data is Saved!!');
       } catch (error) {
         console.log(error);
       }
@@ -261,35 +261,34 @@ const BaseballPage = () => {
       const member = newpicture.member;
       const url = process.env.HOST_URI + `api/photos/${member}`;
       const result = await fetch(url, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(newpicture),
       });
       const data = await result.json();
       //  console.log(data);
-      alert("Data is Updated!!");
+      alert('Data is Updated!!');
     }
-
-  }
+  };
   return (
     <Container className={styles.container}>
       <Navbar />
-      <h2 className={styles.m0}> Baseball Pages </h2>{' '}
+      <h2 className={styles.m0}> Baseball Pages </h2>
       <div className={styles.contant}>
         <div className={styles.sheettable} style={{ width: '1024px' }}>
           <Row className={styles.sheettable}>
             <Col className={styles.sidecolumn} sm='2'>
-              <h5 className={styles.sidetitle}> </h5>{' '}
-            </Col>{' '}
+              <h5 className={styles.sidetitle}> </h5>
+            </Col>
             <Col sm='3'>
-              <Image placeholder='empty' src={photo.image} alt='Picture of the author' width={210} height={250} />{' '}
-            </Col>{' '}
+              <Image placeholder='empty' src={photo.image} alt='Picture of the author' width={210} height={250} />
+            </Col>
             <Col sm='3'>
-              <OutputTextBig cols='12' name='ChineseName' main='' value={values.ChineseName} />{' '}
-              <OutputTextBig cols='12' name='PassportName' main='' value={values.PassportName} />{' '}
-              <OutputText cols='12' name='Gender' main='' value={values.Gender} />{' '}
+              <OutputTextBig cols='12' name='ChineseName' main='' value={values.ChineseName} />
+              <OutputTextBig cols='12' name='PassportName' main='' value={values.PassportName} />
+              <OutputText cols='12' name='Gender' main='' value={values.Gender} />
               <OutputContent
                 cols='6'
                 name='Hight'
@@ -299,138 +298,163 @@ const BaseballPage = () => {
                 unit1='cm'
                 unit2='kg'
               />
-              <OutputText cols='12' name='email' main='' value={valContact.email} />{' '}
-            </Col>{' '}
+              <OutputText cols='12' name='email' main='' value={valContact.email} />
+            </Col>
             <Col sm='3'>
-              <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPhoto({ image: base64 })} />{' '}
+              <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPhoto({ image: base64 })} />
               <button className='btn' onClick={onSubmitHandler}>
-                submit{' '}
-              </button>{' '}
-            </Col>{' '}
-          </Row>{' '}
-          <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm='2' >
-              <h5 className={styles.sidetitle}>information<br />Personal</h5>
-            </Col>
-            <Col sm="3" >
-              <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
-              <OutputText cols="12" name="Grade" main="Grade" value={values.currentGrad} />
-              <OutputText cols="12" name="Citizenship" main="Citizenship" value={valContact.Nationality} />
-            </Col>
-            <Col sm="3" >
-              <OutputText cols="12" name="CurrentSchool" main="Current School" value={valContact.school} />
-              <OutputMonth cols="12" name="expectedgraduationdate" main="High school expected graduation date" value={valContact.birthday} />
-              <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
-            </Col>
-
-            <Col sm="3" >
-            <OutputText cols="12" name="PriPosition" main="Position" value={valContact.PriPosition} />
-              <OutputMonth cols="12" name="SecPosition" main="Second Position" value={valContact.SecPosition} />
-              <OutputText cols="12" name="LeftRightHand" main="B/T" value={valContact.LeftRightHand} />
+                submit
+              </button>
             </Col>
           </Row>
           <Row className={styles.sheettable}>
             <Col className={styles.sidecolumn} sm='2'>
-              <h5 className={styles.sidetitle}>related<br />Subject</h5>
+              <h5 className={styles.sidetitle}>
+                information
+                <br />
+                Personal
+              </h5>
             </Col>
             <Col sm='3'>
-              <OutputText cols="12" name="schoolgradesGPA" main="School grades GPA" value={valSubjects.GPA} />
-              <OutputText cols="12" name="averagegrades" main="Average grades" value={valSubjects.AVG} />
-              <OutputText cols="12" name="TOFEL" main="TOFEL" value={valSubjects.TOFEL} />
+              <OutputDate cols='12' name='Birthday' main='Birthday' value={valContact.birthday} />
+              <OutputText cols='12' name='Grade' main='Grade' value={values.currentGrad} />
+              <OutputText cols='12' name='Citizenship' main='Citizenship' value={valContact.Nationality} />
+            </Col>
+            <Col sm='3'>
+              <OutputText cols='12' name='CurrentSchool' main='Current School' value={valContact.school} />
+              <OutputMonth
+                cols='12'
+                name='expectedgraduationdate'
+                main='High school expected graduation date'
+                value={valContact.birthday}
+              />
+              <OutputText cols='12' name='Residence' main='Passport Name' value={valContact.liveCity} />
+            </Col>
 
-            </Col>
             <Col sm='3'>
-              <OutputText cols="12" name="IELTS" main="IELTS" value={valSubjects.IELTS} />
-              <OutputText cols="12" name="TOEIC" main="TOEIC" value={valSubjects.TOEIC} />
-              <OutputText cols="12" name="SAT" main="SAT" value={valSubjects.SAT} />
-
-            </Col>
-            <Col sm='3'>
-              <OutputText cols="12" name="ACT" main="ACT" value={valSubjects.ACT} />
-              <OutputText cols="12" name="InterestsMajor" main="Interests in College Major" value={valSubjects.IntentMajor} />
+              <OutputText cols='12' name='PriPosition' main='Position' value={valContact.PriPosition} />
+              <OutputMonth cols='12' name='SecPosition' main='Second Position' value={valContact.SecPosition} />
+              <OutputText cols='12' name='LeftRightHand' main='B/T' value={valContact.LeftRightHand} />
             </Col>
           </Row>
           <Row className={styles.sheettable}>
-          <Col className={styles.sidecolumn} sm='2' >
-              <h5 className={styles.sidetitle}>Performance<br />Baseball</h5>
-            </Col>{' '}
+            <Col className={styles.sidecolumn} sm='2'>
+              <h5 className={styles.sidetitle}>
+                related
+                <br />
+                Subject
+              </h5>
+            </Col>
             <Col sm='3'>
-              <OutputText cols='12' name='TenYardSplit' main='10 yard sprint(s)' value={valPerformance.TenYardSplit} />{' '}
+              <OutputText cols='12' name='schoolgradesGPA' main='School grades GPA' value={valSubjects.GPA} />
+              <OutputText cols='12' name='averagegrades' main='Average grades' value={valSubjects.AVG} />
+              <OutputText cols='12' name='TOFEL' main='TOFEL' value={valSubjects.TOFEL} />
+            </Col>
+            <Col sm='3'>
+              <OutputText cols='12' name='IELTS' main='IELTS' value={valSubjects.IELTS} />
+              <OutputText cols='12' name='TOEIC' main='TOEIC' value={valSubjects.TOEIC} />
+              <OutputText cols='12' name='SAT' main='SAT' value={valSubjects.SAT} />
+            </Col>
+            <Col sm='3'>
+              <OutputText cols='12' name='ACT' main='ACT' value={valSubjects.ACT} />
+              <OutputText
+                cols='12'
+                name='InterestsMajor'
+                main='Interests in College Major'
+                value={valSubjects.IntentMajor}
+              />
+            </Col>
+          </Row>
+          <Row className={styles.sheettable}>
+            <Col className={styles.sidecolumn} sm='2'>
+              <h5 className={styles.sidetitle}>
+                Performance
+                <br />
+                Baseball
+              </h5>
+            </Col>
+            <Col sm='3'>
+              <OutputText cols='12' name='TenYardSplit' main='10 yard sprint(s)' value={valPerformance.TenYardSplit} />
+              <div className={styles.bgboarder}>
+                <h6> Pitching Performance </h6>
+                <OutputText cols='12' name='Throwing' main='Throwing Velocity(mph)' value={valPerformance.Throwing} />
+                <OutputText cols='12' name='BlockPitch' main='Block Pitch(s)' value={valPerformance.BlockPitch} />
+                <OutputText cols='12' name='ERA' main='ERA' value={valPerformance.ERA} />
+                <OutputText cols='12' name='ER' main='ER' value={valPerformance.ER} />
+                <OutputText cols='12' name='gamesP' main='Games' value={valPerformance.gamesP} />
+                <OutputText cols='12' name='BHR' main='BHR' value={valPerformance.BHR} />
+                <OutputText cols='12' name='IP' main='IP' value={valPerformance.IP} />
+                <OutputText cols='12' name='HB' main='HB' value={valPerformance.HB} />
+                <OutputText cols='12' name='BH' main='H' value={valPerformance.BH} />
+                <OutputText cols='12' name='BB' main='BB' value={valPerformance.BB} />
+                <OutputText cols='12' name='BRUN' main='R' value={valPerformance.BRUN} />
+                <OutputText cols='12' name='K' main='K' value={valPerformance.K} />
+              </div>
+            </Col>
+            <Col sm='3'>
               <OutputText
                 cols='12'
                 name='SixtyYardSplit'
                 main='60 yard sprint(s)'
                 value={valPerformance.SixtyYardSplit}
-              />{' '}
-              <OutputText cols='12' name='TenYardSplit' main='10 yard sprint(s)' value={valPerformance.TenYardSplit} />{' '}
-              <OutputText cols='12' name='TenYardSplit' main='10 yard sprint(s)' value={valPerformance.TenYardSplit} />{' '}
-              <h6 style={{ marginBottom: 10 }}> Pitching Performance </h6>{' '}
-              <OutputText cols='12' name='Throwing' main='Throwing Velocity(mph)' value={valPerformance.Throwing} />{' '}
-              <OutputText cols='12' name='BlockPitch' main='Block Pitch(s)' value={valPerformance.BlockPitch} />{' '}
-              <OutputText cols='12' name='ERA' main='ERA' value={valPerformance.ERA} />{' '}
-              <OutputText cols='12' name='ER' main='ER' value={valPerformance.ER} />{' '}
-              <OutputText cols='12' name='gamesP' main='Games' value={valPerformance.gamesP} />{' '}
-              <OutputText cols='12' name='BHR' main='BHR' value={valPerformance.BHR} />{' '}
-              <OutputText cols='12' name='IP' main='IP' value={valPerformance.IP} />{' '}
-              <OutputText cols='12' name='HB' main='HB' value={valPerformance.HB} />{' '}
-              <OutputText cols='12' name='BH' main='H' value={valPerformance.BH} />{' '}
-              <OutputText cols='12' name='BB' main='BB' value={valPerformance.BB} />{' '}
-              <OutputText cols='12' name='BRUN' main='R' value={valPerformance.BRUN} />{' '}
-              <OutputText cols='12' name='K' main='K' value={valPerformance.K} />{' '}
-            </Col>{' '}
+              />
+              <div className={styles.bgboarder}>
+                <h6> Hit performance </h6>
+                <OutputText cols='12' name='EXIT' main='Exit Velocity(mph)' value={valPerformance.EXIT} />
+                <OutputText cols='12' name='AB' main='AB' value={valPerformance.AB} />
+                <OutputText cols='12' name='AVG' main='AVG' value={valPerformance.AVG} />
+                <OutputText cols='12' name='Hit2B' main='2B' value={valPerformance.Hit2B} />
+                <OutputText cols='12' name='OPS' main='OPS' value={valPerformance.OPS} />
+                <OutputText cols='12' name='Hit3B' main='3B' value={valPerformance.Hit3B} />
+                <OutputText cols='12' name='gamesH' main='Games' value={valPerformance.gamesH} />
+                <OutputText cols='12' name='HR' main='HR' value={valPerformance.HR} />
+                <OutputText cols='12' name='RUN' main='R' value={valPerformance.RUN} />
+                <OutputText cols='12' name='BK' main='K' value={valPerformance.BK} />
+                <OutputText cols='12' name='Hits' main='H' value={valPerformance.Hits} />
+                <OutputText cols='12' name='BB' main='BB' value={valPerformance.BB} />
+              </div>
+            </Col>
             <Col sm='3'>
-              <h6 style={{ marginBottom: 10 }}> Hit performance </h6>{' '}
-              <OutputText cols='12' name='EXIT' main='Exit Velocity(mph)' value={valPerformance.EXIT} />{' '}
-              <OutputText cols='12' name='AB' main='AB' value={valPerformance.AB} />{' '}
-              <OutputText cols='12' name='AVG' main='AVG' value={valPerformance.AVG} />{' '}
-              <OutputText cols='12' name='Hit2B' main='2B' value={valPerformance.Hit2B} />{' '}
-              <OutputText cols='12' name='OPS' main='OPS' value={valPerformance.OPS} />{' '}
-              <OutputText cols='12' name='Hit3B' main='3B' value={valPerformance.Hit3B} />{' '}
-              <OutputText cols='12' name='gamesH' main='Games' value={valPerformance.gamesH} />{' '}
-              <OutputText cols='12' name='HR' main='HR' value={valPerformance.HR} />{' '}
-              <OutputText cols='12' name='RUN' main='R' value={valPerformance.RUN} />{' '}
-              <OutputText cols='12' name='BK' main='K' value={valPerformance.BK} />{' '}
-              <OutputText cols='12' name='Hits' main='H' value={valPerformance.Hits} />{' '}
-              <OutputText cols='12' name='BB' main='BB' value={valPerformance.BB} />{' '}
-            </Col>{' '}
-            <Col sm='3'>
-              <h6 style={{ marginBottom: 10 }}> Most recent game statistics </h6>{' '}
               <OutputText
                 cols='12'
                 name='latestGameName'
                 main='Most recent tournament/competition game name'
                 value={valPerformance.latestGameName}
-              />{' '}
+              />
               <OutputDate
                 cols='12'
                 name='latestGameDate'
                 main='Most recent game date'
                 value={valContact.latestGameDate}
-              />{' '}
-              <h6 style={{ marginBottom: 10 }}> Pitching Performance </h6>{' '}
-              <OutputText cols='12' name='lERA' main='ERA' value={valPerformance.lERA} />{' '}
-              <OutputText cols='12' name='lER' main='ER' value={valPerformance.lER} />{' '}
-              <OutputText cols='12' name='lIP' main='IP' value={valPerformance.lIP} />{' '}
-              <OutputText cols='12' name='lBHR' main='HR' value={valPerformance.lBHR} />{' '}
-              <OutputText cols='12' name='lBH' main='H' value={valPerformance.lBH} />{' '}
-              <OutputText cols='12' name='lHB' main='HB' value={valPerformance.lHB} />{' '}
-              <OutputText cols='12' name='lBRUN' main='R' value={valPerformance.lBRUN} />{' '}
-              <OutputText cols='12' name='lBB' main='BB' value={valPerformance.lBB} />{' '}
-              <OutputText cols='12' name='lK' main='K' value={valPerformance.lK} />{' '}
-              <h6 style={{ marginBottom: 10 }}> Hitting Performance </h6>{' '}
-              <OutputText cols='12' name='lAVG' main='AVG' value={valPerformance.lAVG} />{' '}
-              <OutputText cols='12' name='lHit2B' main='2B' value={valPerformance.lHit2B} />{' '}
-              <OutputText cols='12' name='lOPS' main='OPS' value={valPerformance.lOPS} />{' '}
-              <OutputText cols='12' name='lHit3B' main='3B' value={valPerformance.lHit3B} />{' '}
-              <OutputText cols='12' name='lRUN' main='R' value={valPerformance.lRUN} />{' '}
-              <OutputText cols='12' name='lHitHR' main='HR' value={valPerformance.lHitHR} />{' '}
-              <OutputText cols='12' name='lHits' main='H' value={valPerformance.lHits} />{' '}
-              <OutputText cols='12' name='lBK' main='K' value={valPerformance.lBK} />{' '}
-              <OutputText cols='12' name='lBBB' main='BB' value={valPerformance.lBBB} />{' '}
-            </Col>{' '}
-          </Row>{' '}
-        </div>{' '}
-      </div>{' '}
+              />
+              <div className={styles.bgboarder}>
+                <h6> Pitching Performance </h6>
+                <OutputText cols='12' name='lERA' main='ERA' value={valPerformance.lERA} />
+                <OutputText cols='12' name='lER' main='ER' value={valPerformance.lER} />
+                <OutputText cols='12' name='lIP' main='IP' value={valPerformance.lIP} />
+                <OutputText cols='12' name='lBHR' main='HR' value={valPerformance.lBHR} />
+                <OutputText cols='12' name='lBH' main='H' value={valPerformance.lBH} />
+                <OutputText cols='12' name='lHB' main='HB' value={valPerformance.lHB} />
+                <OutputText cols='12' name='lBRUN' main='R' value={valPerformance.lBRUN} />
+                <OutputText cols='12' name='lBB' main='BB' value={valPerformance.lBB} />
+                <OutputText cols='12' name='lK' main='K' value={valPerformance.lK} />
+              </div>
+              <div className={styles.bgboarder}>
+                <h6> Hitting Performance </h6>
+                <OutputText cols='12' name='lAVG' main='AVG' value={valPerformance.lAVG} />
+                <OutputText cols='12' name='lHit2B' main='2B' value={valPerformance.lHit2B} />
+                <OutputText cols='12' name='lOPS' main='OPS' value={valPerformance.lOPS} />
+                <OutputText cols='12' name='lHit3B' main='3B' value={valPerformance.lHit3B} />
+                <OutputText cols='12' name='lRUN' main='R' value={valPerformance.lRUN} />
+                <OutputText cols='12' name='lHitHR' main='HR' value={valPerformance.lHitHR} />
+                <OutputText cols='12' name='lHits' main='H' value={valPerformance.lHits} />
+                <OutputText cols='12' name='lBK' main='K' value={valPerformance.lBK} />
+                <OutputText cols='12' name='lBBB' main='BB' value={valPerformance.lBBB} />
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </div>
     </Container>
   );
 };

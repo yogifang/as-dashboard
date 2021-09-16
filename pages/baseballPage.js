@@ -333,7 +333,7 @@ const BaseballPage = () => {
 
             <Col sm='3'>
               <OutputText cols='12' name='PriPosition' main='Position' value={valContact.PriPosition} />
-              <OutputMonth cols='12' name='SecPosition' main='Second Position' value={valContact.SecPosition} />
+              <OutputText cols='12' name='SecPosition' main='Second Position' value={valContact.SecPosition} />
               <OutputText cols='12' name='LeftRightHand' main='B/T' value={valContact.LeftRightHand} />
             </Col>
           </Row>

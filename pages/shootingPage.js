@@ -215,9 +215,6 @@ const ShootingPage = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    // console.log('photos------sumit-----------')
-    // console.log(picture._id);
-    // console.log(member);
     const newpicture = {
       _id: picture._id,
       member: member,

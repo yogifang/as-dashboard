@@ -40,7 +40,15 @@ const AppNavbar = () => {
             Baseball <br></br>Baseball players Infomation
           </span>
         </Button>
-
+        <Button
+          size="sm"
+          variant="light"
+          onClick={(e) => handleButtonClick(e, "/athletics")}
+        >
+          <span>
+            Athletics <br></br>Athletics players Infomation
+          </span>
+        </Button>
         <Button
           size="sm"
           variant="light"

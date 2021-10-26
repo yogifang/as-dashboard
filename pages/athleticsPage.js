@@ -249,8 +249,10 @@ const ShootingPage = () => {
   };
 
   const feetHeight = (cm) => {
-    const feet = Math.round(cm / 30.48);
+    const feet = Math.floor(cm / 30.48);
+
     const inches = ((cm - feet * 30.48) / 2.54).toFixed(0);
+
     return feet.toString() + "'" + inches.toString() + '"';
   };
   return (

@@ -21,41 +21,29 @@ const AppNavbar = () => {
   return (
     <>
       <ButtonGroup className={styles.navbar}>
-        <Button
-          size="sm"
-          id="login"
-          variant="light"
-          onClick={(e) => handleButtonClick(e, "/shooting")}
-        >
+        <Button size="sm" id="login" variant="light" onClick={(e) => handleButtonClick(e, "/shooting")}>
           <span>
             Shooter<br></br>Shooters Information
           </span>
         </Button>
-        <Button
-          size="sm"
-          variant="light"
-          onClick={(e) => handleButtonClick(e, "/baseball")}
-        >
+        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/baseball")}>
           <span>
             Baseball <br></br>Baseball players Infomation
           </span>
         </Button>
-        <Button
-          size="sm"
-          variant="light"
-          onClick={(e) => handleButtonClick(e, "/athletics")}
-        >
+        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/athletics")}>
           <span>
             Athletics <br></br>Athletics players Infomation
           </span>
         </Button>
-        <Button
-          size="sm"
-          variant="light"
-          onClick={(e) => handleButtonClick(e, "/shootingSheet")}
-        >
+        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/tennis")}>
           <span>
-            Sheet <br></br>Shooters list
+            Tennis <br></br>Tennis players Infomation
+          </span>
+        </Button>
+        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/shootingSheet")}>
+          <span>
+            Sheet<br></br>Shooters list
           </span>
         </Button>
       </ButtonGroup>

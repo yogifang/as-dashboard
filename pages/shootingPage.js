@@ -255,14 +255,14 @@ const ShootingPage = () => {
       <div className={styles.contant}>
         <div className={styles.sheettable} style={{ width: "1024px" }}>
           <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm="2">
+            <Col className={styles.sidecolumn} xs={2}>
               <h5 className={styles.sidetitle}></h5>
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <Image placeholder="empty" src={photo.image} alt="Picture of the author" width={210} height={250} />
             </Col>
 
-            <Col sm="3">
+            <Col xs={3}>
               <OutputTextBig cols="12" name="ChineseName" main="" value={values.ChineseName} />
               <OutputTextBig cols="12" name="PassportName" main="" value={values.PassportName} />
               <OutputText cols="12" name="Gender" main="" value={values.Gender} />
@@ -270,7 +270,7 @@ const ShootingPage = () => {
               <OutputText cols="12" name="email" main="" value={valContact.email} />
             </Col>
 
-            <Col sm="3">
+            <Col xs={3}>
               <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setPhoto({ image: base64 })} />
               <button className="btn" onClick={onSubmitHandler}>
                 submit
@@ -279,28 +279,28 @@ const ShootingPage = () => {
           </Row>
 
           <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm="2">
+            <Col className={styles.sidecolumn} xs={2}>
               <h5 className={styles.sidetitle}>
                 information
                 <br />
                 Personal
               </h5>
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputDate cols="12" name="Birthday" main="Birthday" value={valContact.birthday} />
               <OutputText cols="12" name="Grade" main="Grade" value={values.currentGrad} />
               <OutputText cols="12" name="Citizenship" main="Citizenship" value={valContact.Nationality} />
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="CurrentSchool" main="Current School" value={valContact.school} />
               <OutputMonth cols="12" name="expectedgraduationdate" main="High school expected graduation date" value={valContact.birthday} />
-              <OutputText cols="12" name="Residence" main="Passport Name" value={valContact.liveCity} />
+              <OutputText cols="12" name="Residence" main="Residence" value={valContact.liveCity} />
             </Col>
 
-            <Col sm="3"></Col>
+            <Col xs={3}></Col>
           </Row>
           <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm="2">
+            <Col className={styles.sidecolumn} xs={2}>
               <h5 className={styles.sidetitle}></h5>
             </Col>
             <Col sm="10">
@@ -308,38 +308,38 @@ const ShootingPage = () => {
             </Col>
           </Row>
           <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm="2">
+            <Col className={styles.sidecolumn} xs={2}>
               <h5 className={styles.sidetitle}>
                 related
                 <br />
                 Subject
               </h5>
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="schoolgradesGPA" main="School grades GPA" value={valSubjects.GPA} />
               <OutputText cols="12" name="averagegrades" main="Average grades" value={valSubjects.AVG} />
               <OutputText cols="12" name="TOFEL" main="TOFEL" value={valSubjects.TOFEL} />
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="IELTS" main="IELTS" value={valSubjects.IELTS} />
               <OutputText cols="12" name="TOEIC" main="TOEIC" value={valSubjects.TOEIC} />
               <OutputText cols="12" name="SAT" main="SAT" value={valSubjects.SAT} />
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="ACT" main="ACT" value={valSubjects.ACT} />
               <OutputText cols="12" name="InterestsMajor" main="Interests in College Major" value={valSubjects.IntentMajor} />
             </Col>
           </Row>
 
           <Row className={styles.sheettable}>
-            <Col className={styles.sidecolumn} sm="2">
+            <Col className={styles.sidecolumn} xs={2}>
               <h5 className={styles.sidetitle}>
                 performance
                 <br />
                 Shooting
               </h5>
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="10M60r" main="10M Air Rifle Record(60 shots)" value={valPerformance.best10M60R} />
               <OutputText cols="12" name="50M3x40" main="50M Rifle Record (3x40)" value={valPerformance.best50M3x40} />
               <OutputText cols="12" name="50M3x20" main="50M Rifle Record (3x20)" value={valPerformance.best50M3x20} />
@@ -348,14 +348,14 @@ const ShootingPage = () => {
               <OutputText cols="12" name="ISSFProfileLink" main="ISSF Profile Link" value={valPerformance.linkISSF} />
               <OutputText cols="12" name="ISSFProfileLink" main="Showcasing Vidoes" value={valPerformance.linkVideo} />
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputText cols="12" name="10M60r" main="Record Broken in What Level" value={valPerformance.best10MLevel} />
               <OutputText cols="12" name="50M3x40" main="Record Broken in What Level" value={valPerformance.best50M3x40Level} />
               <OutputText cols="12" name="50M3x20" main="Record Broken in What Level" value={valPerformance.best50M3x20Level} />
               <OutputText cols="12" name="latestScore" main="Latest Competition Score" value={valPerformance.latestScore} />
               <OutputText cols="12" name="NationalRank" main="World Rank" value={valPerformance.rankWorld} />
             </Col>
-            <Col sm="3">
+            <Col xs={3}>
               <OutputDate cols="12" name="Date10M" main="Date" value={valPerformance.best10MDate} />
               <OutputDate cols="12" name="Date50M3x40" main="Date" value={valPerformance.best50M3x40Date} />
               <OutputDate cols="12" name="Date50M3x20" main="Date" value={valPerformance.best50M3x20Date} />

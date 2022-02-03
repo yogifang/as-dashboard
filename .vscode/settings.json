@@ -4,5 +4,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.fontFamily": "MonoLisa",
+  "debug.console.fontFamily": "MonoLisa"
 }

@@ -22,12 +22,10 @@ const Shooting = ({ shooters }) => {
       <div className={styles.contant}>
         <h2 className={styles.m0}>Shooters</h2>
 
-        <Form.Select
-          aria-label="Default select example"
-          onChange={onMemberChange}
-          onDoubleClick={onMemberChange}
-          className={styles.centerSelect}
-        >
+        <Form.Select aria-label="Select a Player" onChange={onMemberChange} className={styles.centerSelect}>
+          <option key="blankChoice" hidden value>
+            Search player.....
+          </option>
           {shooters.map((player) => {
             if (player.sportItem !== "shooting") return null;
             //  console.log(player.sportItem);

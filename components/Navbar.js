@@ -21,16 +21,16 @@ const AppNavbar = () => {
   return (
     <>
       <ButtonGroup className={styles.navbar}>
-        <Button size="sm" id="login" variant="light" onClick={(e) => handleButtonClick(e, "/shooting")}>
-          <span>
-            Shooter<br></br>Shooters Information
-          </span>
-        </Button>
-        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/baseball")}>
-          <span>
-            Baseball <br></br>Baseball players Infomation
-          </span>
-        </Button>
+        {/* <Button size="sm" id="login" variant="light" onClick={(e) => handleButtonClick(e, "/shooting")}> */}
+        {/* <span> */}
+        {/* Shooter<br></br>Shooters Information */}
+        {/* </span> */}
+        {/* </Button> */}
+        {/* <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/baseball")}> */}
+        {/* <span> */}
+        {/* Baseball <br></br>Baseball players Infomation */}
+        {/* </span> */}
+        {/* </Button> */}
         <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/athletics")}>
           <span>
             Athletics <br></br>Athletics players Infomation
@@ -39,6 +39,11 @@ const AppNavbar = () => {
         <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/tennis")}>
           <span>
             Tennis <br></br>Tennis players Infomation
+          </span>
+        </Button>
+        <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/baseballSheet")}>
+          <span>
+            Sheet<br></br>Baseball list
           </span>
         </Button>
         <Button size="sm" variant="light" onClick={(e) => handleButtonClick(e, "/shootingSheet")}>

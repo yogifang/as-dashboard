@@ -21,16 +21,7 @@ const columns = [
   { dataField: "latestScore", text: "Latest Competition Results(10m)" },
 ];
 
-const ShootingSheet = ({
-  members,
-  names,
-  genders,
-  birthdays,
-  best10M60Rs,
-  best50M3x40s,
-  best50M3x20s,
-  latestScores,
-}) => {
+const ShootingSheet = ({ members, names, genders, birthdays, best10M60Rs, best50M3x40s, best50M3x20s, latestScores }) => {
   const players = names;
   const { member, setMember } = useContext(Context);
   const [loading, setLoading] = useState(false);
@@ -50,16 +41,7 @@ const ShootingSheet = ({
     let tableData = [];
 
     for (let cnt = 0; cnt < names.length; cnt++) {
-      const obj = Object.assign(
-        { id: cnt },
-        names[cnt],
-        genders[cnt],
-        birthdays[cnt],
-        best10M60Rs[cnt],
-        best50M3x40s[cnt],
-        best50M3x20s[cnt],
-        latestScores[cnt]
-      );
+      const obj = Object.assign({ id: cnt }, names[cnt], genders[cnt], birthdays[cnt], best10M60Rs[cnt], best50M3x40s[cnt], best50M3x20s[cnt], latestScores[cnt]);
       tableData[cnt] = obj;
     }
     setDataset(tableData);
@@ -73,7 +55,7 @@ const ShootingSheet = ({
       router.push(`/shootingPage?member=${email}`);
     },
   };
-  const handleButtonClick = (event) => { };
+  const handleButtonClick = (event) => {};
   function dateFormatter() {
     console.log("-------date formatter");
   }
@@ -85,15 +67,7 @@ const ShootingSheet = ({
       <div className={styles.contant}>
         <h4 className={styles.m0}>Click On Selected Row will show Details</h4>
         <div className={styles.sheettable}>
-          <BootstrapTable
-            striped
-            bordered
-            hover
-            keyField="id"
-            data={dataset}
-            columns={columns}
-            rowEvents={rowEvents}
-          />
+          <BootstrapTable striped bordered hover keyField="id" data={dataset} columns={columns} rowEvents={rowEvents} />
         </div>
 
         <Row className={styles.rowLine}>
@@ -115,21 +89,19 @@ export async function getServerSideProps() {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   };
-  const [resMembers, resBaseballInfo, resContacts, resPerformances] =
-    await Promise.all([
-      fetch(urlMembers, queryParams),
-      fetch(urlBaseballInfo, queryParams),
-      fetch(urlContacts, queryParams),
-      fetch(urlPerformance, queryParams),
-    ]);
+  const [resMembers, resBaseballInfo, resContacts, resPerformances] = await Promise.all([
+    fetch(urlMembers, queryParams),
+    fetch(urlBaseballInfo, queryParams),
+    fetch(urlContacts, queryParams),
+    fetch(urlPerformance, queryParams),
+  ]);
 
-  const [dataMembers, dataBaseballInfo, dataContacts, dataPerformances] =
-    await Promise.all([
-      resMembers.json(),
-      resBaseballInfo.json(),
-      resContacts.json(),
-      resPerformances.json(),
-    ]);
+  const [dataMembers, dataBaseballInfo, dataContacts, dataPerformances] = await Promise.all([
+    resMembers.json(),
+    resBaseballInfo.json(),
+    resContacts.json(),
+    resPerformances.json(),
+  ]);
 
   let adata = [];
   let dNames = [];
@@ -152,8 +124,7 @@ export async function getServerSideProps() {
 
   adata.map((player, index) => {
     dNames[index] = {
-      PassportName: dataBaseballInfo.data.find(findEmail, player.email)
-        .PassportName,
+      PassportName: dataBaseballInfo.data.find(findEmail, player.email).PassportName,
     };
     dGenders[index] = {
       Gender: dataBaseballInfo.data.find(findEmail, player.email).Gender,

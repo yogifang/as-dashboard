@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/Contant.module.css";
 import Moment from "react-moment";
 import OutputText from "../components/OutputText";
+import OutputTextBT from "../components/OutputTextBT";
 import OutputDate from "../components/OutputDate";
 import OutputMonth from "../components/OutputMonth";
 import FileBase64 from "react-file-base64";
@@ -332,7 +333,7 @@ const BaseballPage = () => {
             <Col xs={3}>
               <OutputText cols="12" name="PriPosition" main="Position" value={values.PriPosition} />
               <OutputText cols="12" name="SecPosition" main="Second Position" value={values.SecPosition} />
-              <OutputText cols="12" name="LeftRightHand" main="B/T" value={values.LeftRightHand} />
+              <OutputTextBT cols="12" name="LeftRightHand" main="B/T" value={values.LeftRightHand} />
             </Col>
           </Row>
           <Row className={styles.sheettable}>

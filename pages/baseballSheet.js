@@ -125,6 +125,9 @@ export async function getServerSideProps() {
     if (baseballInfo !== undefined) {
       dNames[index] = { PassportName: baseballInfo.PassportName || " " };
       dBTs[index] = { LeftRightHand: baseballInfo.LeftRightHand || " " };
+      if (dBTs[index].LeftRightHand !== " ") {
+        dBTs[index].LeftRightHand = dBTs[index].LeftRightHand = dBTs[index].LeftRightHand[2] + "/" + dBTs[index].LeftRightHand[0];
+      }
       dPositions[index] = { PriPosition: baseballInfo.PriPosition || " " };
 
       const dataContact = dataContacts.data.find(findEmail, player.email);
